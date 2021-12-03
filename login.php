@@ -1,6 +1,4 @@
 <?php
-
-
 // conecta ao BD
 $db_name = 'agoras';
 $db_host = 'localhost';
@@ -39,7 +37,7 @@ if(is_null($nome)) {
 }
 // Se houve envio dos dados
 else {
-    $query = pg_query($bdOpen, "SELECT senha FROM usuarios WHERE login='$nome'");
+    $query = pg_query($bdOpen, "SELECT senha FROM usuarios WHERE email='$nome'");
 
 	if(pg_num_rows($query) > 0){
 		$row = pg_fetch_array($query);
