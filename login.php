@@ -1,17 +1,8 @@
 <?php
-// conecta ao BD
-$db_name = 'agoras';
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = 'cacau123';
-
 extension_loaded('pgsql') ? 'yes' : 'no';
 
 $bdOpen = pg_connect(getenv("DATABASE_URL"))
 	or die("Não foi possível conectar ao servidor");
-//caso a conexão seja efetuada com sucesso, exibe uma mensagem ao usuário
-
-
 
 // array for JSON response
 $response = array();

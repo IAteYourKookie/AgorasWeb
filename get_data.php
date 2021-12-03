@@ -3,19 +3,10 @@
 // array for JSON response
 $response = array();
 
-// conecta ao BD
-$db_name = 'agoras';
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = 'cacau123';
-
 extension_loaded('pgsql') ? 'yes' : 'no';
 
-$bdOpen = pg_connect("postgres://postgres:cacau123@localhost:5432/postgres")
-	or die("Não foi possível conectar ao servidor MySQL");
-//caso a conexão seja efetuada com sucesso, exibe uma mensagem ao usuário
-echo "Conexão efetuada com sucesso!!";
-
+$bdOpen = pg_connect(getenv("DATABASE_URL"))
+	or die("Não foi possível conectar ao servidor");
 
 $nome = NULL;
 $senha = NULL;

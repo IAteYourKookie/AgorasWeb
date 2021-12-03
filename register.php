@@ -1,58 +1,62 @@
 <?php
- 
+
 /*
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
  */
- 
 
-// conecta ao BD
-$db_name = 'agoras';
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = 'cacau123';
 
 extension_loaded('pgsql') ? 'yes' : 'no';
 
-$bdOpen = pg_connect("postgres://postgres:cacau123@localhost:5432/postgres")
-	or die("Não foi possível conectar ao servidor MySQL");
-//caso a conexão seja efetuada com sucesso, exibe uma mensagem ao usuário
-echo "Conexão efetuada com sucesso!!";
+$bdOpen = pg_connect(getenv("DATABASE_URL"))
+	or die("Não foi possível conectar ao servidor");
 
- 
 // array for JSON response
 $response = array();
- 
+
 // check for required fields
-if (isset($_POST['newLogin']) && isset($_POST['newPassword'])) {
- 
-	$newLogin = trim($_POST['newLogin']);
-	$newPassword = trim($_POST['newPassword']);
-		
-	$usuario_existe = pg_query($bdOpen, "SELECT login FROM usuarios WHERE login='$newLogin'");
+if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
+
+	$newEmail = trim($_POST['newEmail']);
+	$newSenha = trim($_POST['newSenha']);
+	$newNome = trim($_POST['newNome']);
+	$newnome_de_usuario = trim($_POST['newnome_de_usuario']);
+
+	// verificando se usuario existe
+	$usuario_existe = pg_query($bdOpen, "SELECT email FROM usuarios WHERE email='$newEmail'");
 	// check for empty result
 	if (pg_num_rows($usuario_existe) > 0) {
 		$response["success"] = 0;
 		$response["error"] = "usuario ja cadastrado";
-	}
-	else {
+	} else {
 		// mysql inserting a new row
-		$result = pg_query($bdOpen, "INSERT INTO usuarios(login, senha) VALUES('$newLogin', '$newPassword')");
-	 
+		$result = pg_query($bdOpen, "INSERT INTO usuarios(nome, nome_de_usuario, senha, email) VALUES('$newNome', '$newnome_de_usuario', '$newSenha', '$newEmail')");
+
 		if ($result) {
 			$response["success"] = 1;
-		}
-		else {
+		} else {
 			$response["success"] = 0;
-			$response["error"] = "Error BD: ".pg_last_error($bdOpen);
+			$response["error"] = "Error BD: " . pg_last_error($bdOpen);
 		}
-	}
-}
-else {
-    $response["success"] = 0;
+	} /* 
+	codigo de verificação de senha (fazer alteração)
+	if($_POST) {
+        $senha          = $_POST['senha'];
+        $senhaConfirma  = $_POST['senha_confirma'];
+        if ($senha == "") {
+            $mensagem = "<span class='aviso'><b>Aviso</b>: Senha não foi alterada!</span>";
+        } else if ($senha == $senhaConfirma) {
+            $mensagem = "<span class='sucesso'><b>Sucesso</b>: As senhas são iguais: ".$senha."</span>";
+        } else {
+            $mensagem = "<span class='erro'><b>Erro</b>: As senhas não conferem!</span>";
+        }
+        echo "<p id='mensagem'>".$mensagem."</p>";
+    } 
+	*/
+} else {
+	$response["success"] = 0;
 	$response["error"] = "faltam parametros";
 }
 
 pg_close($bdOpen);
 echo json_encode($response);
-?>
