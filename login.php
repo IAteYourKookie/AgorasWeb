@@ -9,8 +9,8 @@ $db_pass = 'cacau123';
 
 extension_loaded('pgsql') ? 'yes' : 'no';
 
-$bdOpen = pg_connect("postgres://postgres:cacau123@localhost:5432/postgres")
-	or die("Não foi possível conectar ao servidor MySQL");
+$bdOpen = pg_connect(getenv("DATABASE_URL"))
+	or die("Não foi possível conectar ao servidor");
 //caso a conexão seja efetuada com sucesso, exibe uma mensagem ao usuário
 echo "Conexão efetuada com sucesso!!";
 
