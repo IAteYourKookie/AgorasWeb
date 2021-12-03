@@ -12,7 +12,7 @@ extension_loaded('pgsql') ? 'yes' : 'no';
 $bdOpen = pg_connect(getenv("DATABASE_URL"))
 	or die("Não foi possível conectar ao servidor");
 //caso a conexão seja efetuada com sucesso, exibe uma mensagem ao usuário
-echo "Conexão efetuada com sucesso!!";
+
 
 
 // array for JSON response
