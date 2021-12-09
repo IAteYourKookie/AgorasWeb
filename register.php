@@ -55,7 +55,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
 	*/
 } else {
 	$response["success"] = 0;
-	$response["error"] = "faltam parametros";
+	$response["error"] = "faltam parametros LOL";
 }
 
 pg_close($bdOpen);
