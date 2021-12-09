@@ -15,11 +15,11 @@ $bdOpen = pg_connect(getenv("DATABASE_URL"))
 $response = array();
 
 // check for required fields
-if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
+if (isset($_POST['newEmail']) && isset($_POST['newPassword']) && isset($_POST['newLogin']) && isset($_POST['newName'])) {
 
-	$newEmail = trim($_POST['etEmailResgister']);
-	$newSenha = trim($_POST['etNewPassword']);
-	//$newNome = trim($_POST['newNome']);
+	$newEmail = trim($_POST['newEmail']);
+	$newPassword = trim($_POST['newPassword']);
+	$newName = trim($_POST['newName']);
 	$newnome_de_usuario = trim($_POST['etNewLogin']);
 
 	// verificando se usuario existe
@@ -30,7 +30,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
 		$response["error"] = "usuario ja cadastrado";
 	} else {
 		// mysql inserting a new row
-		$result = pg_query($bdOpen, "INSERT INTO usuarios(nome, nome_de_usuario, senha, email) VALUES('$newnome_de_usuario', '$newnome_de_usuario', '$newSenha', '$newEmail')");
+		$result = pg_query($bdOpen, "INSERT INTO usuarios(nome, nome_de_usuario, senha, email) VALUES('$newnome_de_usuario', '$newLogin', '$newPassword', '$newEmail')");
 
 		if ($result) {
 			$response["success"] = 1;
@@ -55,7 +55,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
 	*/
 } else {
 	$response["success"] = 0;
-	$response["error"] = "faltam parametros LOL";
+	$response["error"] = "faltam parametros";
 }
 
 pg_close($bdOpen);
