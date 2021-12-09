@@ -17,10 +17,10 @@ $response = array();
 // check for required fields
 if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
 
-	$newEmail = trim($_POST['newEmail']);
-	$newSenha = trim($_POST['newSenha']);
+	$newEmail = trim($_POST['etEmailResgister']);
+	$newSenha = trim($_POST['etNewPassword']);
 	//$newNome = trim($_POST['newNome']);
-	$newnome_de_usuario = trim($_POST['newnome_de_usuario']);
+	$newnome_de_usuario = trim($_POST['etNewLogin']);
 
 	// verificando se usuario existe
 	$usuario_existe = pg_query($bdOpen, "SELECT email FROM usuarios WHERE email='$newEmail'");
