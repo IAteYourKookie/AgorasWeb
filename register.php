@@ -19,7 +19,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
 
 	$newEmail = trim($_POST['newEmail']);
 	$newSenha = trim($_POST['newSenha']);
-	$newNome = trim($_POST['newNome']);
+	//$newNome = trim($_POST['newNome']);
 	$newnome_de_usuario = trim($_POST['newnome_de_usuario']);
 
 	// verificando se usuario existe
@@ -30,7 +30,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newSenha'])) {
 		$response["error"] = "usuario ja cadastrado";
 	} else {
 		// mysql inserting a new row
-		$result = pg_query($bdOpen, "INSERT INTO usuarios(nome, nome_de_usuario, senha, email) VALUES('$newNome', '$newnome_de_usuario', '$newSenha', '$newEmail')");
+		$result = pg_query($bdOpen, "INSERT INTO usuarios(nome, nome_de_usuario, senha, email) VALUES(NULL, '$newnome_de_usuario', '$newSenha', '$newEmail')");
 
 		if ($result) {
 			$response["success"] = 1;
