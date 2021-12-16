@@ -21,21 +21,21 @@
     </style>
 </head><body>
 <?php
-    $db_name = 'agoras';
-    $db_host ='localhost';
-    $db_user = 'root';
-    $db_pass = 'cacau123';
+    $db_name = 'd8e16dgc7gld9j';
+    $db_host ='ec2-18-213-133-45.compute-1.amazonaws.com';
+    $db_user = 'wyclwmamsumncs';
+    $db_pass = '886abfe44d00cf375f1ef5c13d290cb28cb8b1452cce70c27858c209b5a75bdd';
     
     extension_loaded('pgsql') ? 'yes':'no';
     
-    $bdOpen = pg_connect("postgres://postgres:cacau123@localhost:5432/postgres") or pg_last_error();
+    $bdOpen = pg_connect("postgres://wyclwmamsumncs:886abfe44d00cf375f1ef5c13d290cb28cb8b1452cce70c27858c209b5a75bdd@ec2-18-213-133-45.compute-1.amazonaws.com:5432/d8e16dgc7gld9j") or pg_last_error();
     //caso a conexão seja efetuada com sucesso, exibe uma mensagem ao usuário
     echo "Conexão efetuada com sucesso!!";
 
 
     $dados = array();
 
-    /*$sql = 'SELECT * FROM usuarios';
+    $sql = 'SELECT * FROM usuarios';
     $res = pg_query($bdOpen, $sql);
 
     if (pg_num_rows($res) > 0) {
@@ -50,8 +50,9 @@
         }
     }
     echo json_encode($dados);
+    print_r($user);
     
-    $sql = "SELECT * FROM usuarios";
+    /*$sql = "SELECT * FROM usuarios";
     $aux = pg_query($bdOpen,$sql);
 
     echo "<p>Usuario</p><table>";
