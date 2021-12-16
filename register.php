@@ -15,12 +15,12 @@ $bdOpen = pg_connect(getenv("DATABASE_URL"))
 $response = array();
 
 // check for required fields
-if (isset($_POST['newEmail']) && isset($_POST['newPassword']) && isset($_POST['newLogin']) && isset($_POST['newName'])) {
+if (isset($_POST['newEmail']) && isset($_POST['newName']) && isset($_POST['newLogin']) && isset($_POST['newPassword'])) {
 
 	$newEmail = trim($_POST['newEmail']);
-	$newPassword = trim($_POST['newPassword']);
 	$newName = trim($_POST['newName']);
 	$newLogin = trim($_POST['newLogin']);
+	$newPassword = trim($_POST['newPassword']);
 
 	// verificando se usuario existe
 	$usuario_existe = pg_query($bdOpen, "SELECT email FROM usuarios WHERE email='$newEmail'");
@@ -38,21 +38,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newPassword']) && isset($_POST['n
 			$response["success"] = 0;
 			$response["error"] = "Error BD: " . pg_last_error($bdOpen);
 		}
-	} /* 
-	codigo de verificação de senha (fazer alteração)
-	if($_POST) {
-        $senha          = $_POST['senha'];
-        $senhaConfirma  = $_POST['senha_confirma'];
-        if ($senha == "") {
-            $mensagem = "<span class='aviso'><b>Aviso</b>: Senha não foi alterada!</span>";
-        } else if ($senha == $senhaConfirma) {
-            $mensagem = "<span class='sucesso'><b>Sucesso</b>: As senhas são iguais: ".$senha."</span>";
-        } else {
-            $mensagem = "<span class='erro'><b>Erro</b>: As senhas não conferem!</span>";
-        }
-        echo "<p id='mensagem'>".$mensagem."</p>";
-    } 
-	*/
+	}
 } else {
 	$response["success"] = 0;
 	$response["error"] = "faltam parametros";
