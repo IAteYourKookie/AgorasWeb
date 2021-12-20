@@ -3,10 +3,7 @@
 // array for JSON response
 $response = array();
 
-extension_loaded('pgsql') ? 'yes' : 'no';
-
-$bdOpen = pg_connect(getenv("DATABASE_URL"))
-	or die("Não foi possível conectar ao servidor");
+require "conexao.php";
 
 $nome = NULL;
 $senha = NULL;
