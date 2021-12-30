@@ -9,5 +9,11 @@ $response = array();
  * CRUD -> insert, select, delete
 */
 
+$comentario = NULL;
+
+//check for required fields
+
+$comentario = trim($_POST['comentario']);
+
 pg_close($bdOpen);
 echo json_encode($response);

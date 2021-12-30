@@ -24,6 +24,8 @@ FROM usuarios INNER JOIN tema
 ON tema.fk_usuarios_id_usuario = usuarios.id_usuario;");
 $result= pg_query($bdOpen,"INSERT INTO tema(titulo,descricao) VALUES('$titulo','$descricao')");
 
+//falta adicionar o id do usuario na tabeela de temas
+
 
 //check erro
 if ($result) {
