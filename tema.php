@@ -22,7 +22,7 @@ $result = pg_query($bdOpen, "INSERT INTO tema(titulo, descricao, fk_usuarios_id_
 SELECT tema.titulo, tema.descricao, tema.fk_usuarios_id_usuario 
 FROM usuarios INNER JOIN tema 
 ON tema.fk_usuarios_id_usuario = usuarios.id_usuario;");
-$result= pg_query($bdOpen,"INSERT INTO tema(titulo,descricao,fk_usuarios_id_usuario) VALUES('$titulo','$descricao',usuarios.id_usuario)");
+$result= pg_query($bdOpen,"INSERT INTO tema(titulo,descricao,fk_usuarios_id_usuario) VALUES('$titulo','$descricao','10')");
 
 //check erro
 if ($result) {
