@@ -21,8 +21,7 @@ $descricao = trim($_POST['descricao']);
 $result = pg_query($bdOpen, "INSERT INTO tema(titulo, descricao, fk_usuarios_id_usuario) 
 SELECT tema.titulo, tema.descricao, tema.fk_usuarios_id_usuario 
 FROM usuarios INNER JOIN tema 
-ON tema.fk_usuarios_id_usuario = usuarios.id_usuario;
-INSERT INTO tema(titulo,descricao,fk_usuarios_id_usuario) VALUES('$titulo','$descricao',usuarios.id_usuario)");
+ON tema.fk_usuarios_id_usuario = usuarios.id_usuario;");
 
 //check erro
 if ($result) {
