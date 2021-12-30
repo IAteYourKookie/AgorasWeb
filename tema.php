@@ -18,10 +18,10 @@ $titulo = trim($_POST['titulo']);
 $descricao = trim($_POST['descricao']);
 
 // insert temas 
-$result = pg_query($bdOpen, "INSERT INTO tema(titulo, descricao, FK_USUARIOS_id_usuario) 
-SELECT tema.titulo, tema.descricao tema.FK_USUARIOS_id_usuario 
+$result = pg_query($bdOpen, "INSERT INTO tema(titulo, descricao, fk_usuarios_id_usuario) 
+SELECT tema.titulo, tema.descricao tema.fk_usuarios_id_usuario 
 FROM usuarios INNER JOIN tema 
-ON tema.FK_USUARIOS_id_usuarios = usuarios.FK_USUARIOS_id_usuarios");
+ON tema.fk_usuarios_id_usuario = usuarios.id_usuarios");
 
 //check erro
 if ($result) {
