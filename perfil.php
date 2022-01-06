@@ -5,10 +5,6 @@ require "conexao.php";
 // array for JSON response
 $response = array();
 
-/* 
- * Adicionar código para perfil
-*/
-
 // redefinir senha
 $oldPass = NULL;
 $newPass = NULL;
