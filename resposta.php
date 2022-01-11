@@ -1,6 +1,5 @@
 <?php
-require "conexao.php";
-require "checkData.php";
+require "./configs/conexao.php";
 
 // array for JSON response
 $response = array();
@@ -9,19 +8,22 @@ $resposta = NULL;
 $etMessage = NULL;
 
 //alterar para resposta
-$resposta = trim($_POST['respsota']);
-$data = date($_POST['data']);
+$resposta = trim($_POST['resposta']);
 
-$result = pg_query($bdOpen, "INSERT INTO resposta(
+
+/* $result = pg_query($bdOpen, "INSERT INTO resposta(
     fk_comentario_id_comentario, fk_usuarios_id_usuario
     ) SELECT resposta.fk_resposta_id_resposta, usuarios.fk_usuarios_usuario
     FROM resposta, usuarios INNER JOIN resposta 
     ON resposta.fk_resposta_id_resposta = resposta.id_resposta AND
     resposta.fk_usuarios_id_usuario = usuarios.id_usuario 
-");
-$result = pg_query($bdOpen, "INSERT INTO resposta(data, resposta) VALUES('$data', '$resposta')");
+"); */
+
+
+$result = pg_query($bdOpen, "INSERT INTO resposta(data_envio, resposta) VALUES(NOW(), '$resposta')");
 
 // adicionar select 
+//falta adicionar as chaves estrangeiras 
 
 
 //check erro

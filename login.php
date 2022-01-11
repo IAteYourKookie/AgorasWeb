@@ -1,5 +1,5 @@
 <?php
-require "conexao.php";
+require "./configs/conexao.php";
 
 // array for JSON response
 $response = array();
@@ -47,4 +47,3 @@ else {
 
 pg_close($bdOpen);
 echo json_encode($response);
-?>

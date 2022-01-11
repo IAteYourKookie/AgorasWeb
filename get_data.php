@@ -3,7 +3,7 @@
 // array for JSON response
 $response = array();
 
-require "conexao.php";
+require "./configs/conexao.php";
 
 $nome = NULL;
 $senha = NULL;

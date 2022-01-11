@@ -1,12 +1,11 @@
 <?php
-require "conexao.php";
+require "./configs/conexao.php";
 
 // array for JSON response
 $response = array();
 
 /* 
- * Adicionar código para comentario 
- * CRUD -> insert, select, delete
+ * CRUD -> insert, select
 */
 
 $comentario = NULL;
@@ -30,4 +29,3 @@ if ($result) {
 
 pg_close($bdOpen);
 echo json_encode($response);
-?>

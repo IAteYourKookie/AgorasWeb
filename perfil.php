@@ -1,6 +1,6 @@
 
 <?php
-require "conexao.php";
+require "./configs/conexao.php";
 
 // array for JSON response
 $response = array();
@@ -11,7 +11,7 @@ $newPass = NULL;
 $passCheck = NULL;
 
 // edição perfil
-$umgPfp = NULL;
+$imgPfp = NULL;
 $editName = NULL;
 $editEmail = NULL;
 $editBio = NULL;
