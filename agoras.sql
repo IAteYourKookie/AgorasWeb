@@ -29,7 +29,7 @@ CREATE TABLE DEBATE (
 
 CREATE TABLE COMENTARIO (
     id_comentario Integer PRIMARY KEY AUTO_INCREMENT,
-    data DATE,
+    data_envio DATE,
     comentario VARCHAR(500),
     FK_DEBATE_id_debate Integer,
     FK_USUARIOS_id_usuario Integer
@@ -38,7 +38,7 @@ CREATE TABLE COMENTARIO (
 CREATE TABLE RESPOSTA (
     id_resposta Integer PRIMARY KEY AUTO_INCREMENT,
     resposta VARCHAR(500),
-    data DATE,
+    data_envio DATE,
     FK_COMENTARIO_id_comentario Integer,
     FK_USUARIOS_id_usuario Integer
 );
