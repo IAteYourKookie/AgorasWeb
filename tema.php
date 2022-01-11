@@ -17,16 +17,17 @@ $titulo = trim($_POST['titulo']);
 $descricao = trim($_POST['descricao']);
 
 // insert temas 
+
 /* 
-*Perguntar a Lorena o que está sendo feito aqui!
-*/
 $result1 = pg_query($bdOpen, "INSERT INTO tema(fk_usuarios_id_usuario) 
 SELECT tema.fk_usuarios_id_usuario 
 FROM usuarios INNER JOIN tema 
 ON tema.fk_usuarios_id_usuario = usuarios.id_usuario;");
+*/
+
 $result = pg_query($bdOpen, "INSERT INTO tema(titulo,descricao) VALUES('$titulo','$descricao')");
 
-//falta adicionar o id do usuario na tabeela de temas
+//falta adicionar o id do usuario na tabela de temas
 
 
 //check erro

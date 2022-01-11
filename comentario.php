@@ -15,6 +15,7 @@ $comentario = NULL;
 $comentario = trim($_POST['comentario']);
 
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario) VALUES(NOW(), '$comentario')");
+//falta adicionar as chaves estrangeiras, like e deslike
 
 //adicionar o select 
 
