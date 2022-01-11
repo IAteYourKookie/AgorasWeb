@@ -11,18 +11,10 @@ $response = array();
 */
 
 $comentario = NULL;
-$etMessage = NULL; //var do comentario no android studio 
 
 //check for required fields
 $comentario = trim($_POST['comentario']);
 
-$result = pg_query($bdOpen, "INSERT INTO comentario(
-    fk_debate_id_debate, fk_usuarios_id_usuario
-    ) SELECT debate.fk_debate_id_debate, usuarios.fk_usuarios_usuario
-    FROM debate, usuarios INNER JOIN comentario 
-    ON comentario.fk_debate_id_debate = debate.id_debate AND
-    comentario.fk_usuarios_id_usuario = usuarios.id_usuario 
-");
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario) VALUES(NOW(), '$comentario')");
 
 //adicionar o select 
