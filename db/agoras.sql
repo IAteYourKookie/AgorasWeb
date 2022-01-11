@@ -20,7 +20,7 @@ CREATE TABLE CURTIDA (
 );
 
 /* 
-// TODO Lorena
+TODO Lorena
 alterar tabela debate, pq temos dois id_tema
 tem que tirar o id_tema e deixar o fk_tema_id_tema
 */
