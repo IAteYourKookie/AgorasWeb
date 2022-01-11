@@ -21,7 +21,7 @@ $result = pg_query($bdOpen, $sql);
 /* 
  TODO Lorena
 * Alterar cor do Like no android studio 
- * ver como fazer isso 
+ *ver como fazer isso 
 */
 
 if (pg_fetch_array($sql)) {
