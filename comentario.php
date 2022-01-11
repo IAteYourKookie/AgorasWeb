@@ -15,7 +15,6 @@ $etMessage = NULL; //var do comentario no android studio
 
 //check for required fields
 $comentario = trim($_POST['comentario']);
-$data = date($_POST['data']);
 
 $result = pg_query($bdOpen, "INSERT INTO comentario(
     fk_debate_id_debate, fk_usuarios_id_usuario
@@ -24,7 +23,7 @@ $result = pg_query($bdOpen, "INSERT INTO comentario(
     ON comentario.fk_debate_id_debate = debate.id_debate AND
     comentario.fk_usuarios_id_usuario = usuarios.id_usuario 
 ");
-$result = pg_query($bdOpen, "INSERT INTO comentario(data, comentario) VALUES('$data', '$comentario')");
+$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario) VALUES(NOW(), '$comentario')");
 
 //adicionar o select 
 
