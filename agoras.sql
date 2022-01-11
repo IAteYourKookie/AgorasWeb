@@ -1,12 +1,12 @@
 CREATE TABLE TEMA (
-    id_tema Integer PRIMARY KEY,
+    id_tema Integer PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(50),
     descricao VARCHAR(200),
     FK_USUARIOS_id_usuario Integer
 );
 
 CREATE TABLE USUARIOS (
-    id_usuario Integer PRIMARY KEY,
+    id_usuario Integer PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
     nome_de_usuario VARCHAR(50),
     senha VARCHAR(130),
@@ -14,13 +14,13 @@ CREATE TABLE USUARIOS (
 );
 
 CREATE TABLE CURTIDA (
-    id_curtida Integer PRIMARY KEY,
+    id_curtida Integer PRIMARY KEY AUTO_INCREMENT,
     FK_USUARIOS_id_usuario Integer,
     FK_TEMA_id_tema Integer
 );
 
 CREATE TABLE DEBATE (
-    id_debate Integer PRIMARY KEY,
+    id_debate Integer PRIMARY KEY AUTO_INCREMENT,
     id_tema Integer,
     dt_inicio DATE,
     dt_final DATE,
@@ -28,7 +28,7 @@ CREATE TABLE DEBATE (
 );
 
 CREATE TABLE COMENTARIO (
-    id_comentario Integer PRIMARY KEY,
+    id_comentario Integer PRIMARY KEY AUTO_INCREMENT,
     data DATE,
     comentario VARCHAR(500),
     FK_DEBATE_id_debate Integer,
@@ -36,7 +36,7 @@ CREATE TABLE COMENTARIO (
 );
 
 CREATE TABLE RESPOSTA (
-    id_resposta Integer PRIMARY KEY,
+    id_resposta Integer PRIMARY KEY AUTO_INCREMENT,
     resposta VARCHAR(500),
     data DATE,
     FK_COMENTARIO_id_comentario Integer,
