@@ -16,6 +16,8 @@ $editName = NULL;
 $editEmail = NULL;
 $editBio = NULL;
 
+$result = pg_query($bdOpen, "INSERT INTO perfil() VALUES()");
+
 pg_close($bdOpen);
 echo json_encode($response);
 ?>
