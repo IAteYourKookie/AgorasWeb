@@ -4,10 +4,6 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-/* 
- * CRUD -> insert, select
-*/
-
 $comentario = NULL;
 
 //check for required fields
@@ -17,7 +13,6 @@ $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario) VALU
 //falta adicionar as chaves estrangeiras, like e deslike
 
 //adicionar o select 
-
 
 //check erro
 if ($result) {
