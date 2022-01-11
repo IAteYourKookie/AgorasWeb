@@ -1,6 +1,5 @@
 <?php
 require "conexao.php";
-require "checkData.php";
 
 // array for JSON response
 $response = array();
