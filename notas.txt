@@ -1,0 +1,15 @@
+Lógica da troca de tema: no android studio, no onCreate da home_activity, 
+chamar o código php pra verificar a data final dos temas na tabela debate 
+
+Vai criar um array da tabela debate ordenando (com order by) pela data final, 
+com a maior data primeiro (a data mais recente) e depois pega apenas o primeiro item 
+da tabela que a consulta (select) retornou
+
+Logo em seguida, comparar essa primeira data final com a data atual
+
+Caso essa data final não tenha passado, ir para o Android Studio e colocar 
+o tema referente a essa data na tela inicial
+
+Caso já passou, pegar o primeiro tema da tabela tema/curtida ordenando 
+pelos que tiverem mais votos (curtidas), levar ele pra tabela Debate, 
+colocar a data inicial como a data atual (now) e já definir a data final
