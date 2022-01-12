@@ -10,7 +10,7 @@ $senha = NULL;
 // Método para mod_php (Apache)
 if ( isset( $_SERVER['PHP_AUTH_USER'] ) ) {
     $nome = $_SERVER['PHP_AUTH_USER'];
-    $senha = hash('md5', $_SERVER['PHP_AUTH_PW']);
+    $senha = $_SERVER['PHP_AUTH_PW'];
 }
 // Método para demais servers
 elseif(isset( $_SERVER['HTTP_AUTHORIZATION'])) {
@@ -29,7 +29,7 @@ else {
 
 	if(pg_num_rows($query) > 0){
 		$row = pg_fetch_array($query);
-		if($senha == $row['senha']){
+		if(hash('md5',$senha) == $row['senha']){
 			$response["success"] = 1;
 		}
 		else {
