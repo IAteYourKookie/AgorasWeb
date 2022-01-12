@@ -14,7 +14,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newName']) && isset($_POST['newLo
 	$newEmail = trim($_POST['newEmail']);
 	$newName = trim($_POST['newName']);
 	$newLogin = trim($_POST['newLogin']);
-	$newPassword = trim($_POST['newPassword']);
+	$newPassword = hash('md5', trim($_POST['newPassword']));
 
 	// verificando se usuario existe
 	$usuario_existe = pg_query($bdOpen, "SELECT email FROM usuarios WHERE email='$newEmail'");

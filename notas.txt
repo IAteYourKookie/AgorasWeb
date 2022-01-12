@@ -13,3 +13,22 @@ o tema referente a essa data na tela inicial
 Caso já passou, pegar o primeiro tema da tabela tema/curtida ordenando 
 pelos que tiverem mais votos (curtidas), levar ele pra tabela Debate, 
 colocar a data inicial como a data atual (now) e já definir a data final
+
+
+
+PHP - BackEnd - Charles e Shayane - 16/01
+- iniciar edição de perfil e senha - UPDATE 
+- criptografia de senha - md5, sha1, base64 - no registro pra mandar pro banco e no login para fazer a comparação
+- adicionar (comentário) -  SELECT 
+- adicionar (resposta) -  SELECT 
+- iniciar tabela DEBATE - INSERT
+- resolver problema da tabela curtida 
+
+OBS: não esquecer dos códigos com chaves estrangeiras. 
+
+
+$email = "Anderson";
+$senha = "MinhaSenhaDificil";
+echo md5($senha); 
+echo "<br>";
+echo hash('md5',$senha);
