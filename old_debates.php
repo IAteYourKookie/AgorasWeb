@@ -4,19 +4,13 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-$tvTitleTheme = NULL;
-$tvDescDebate = NULL;
-$tvDebates = NULL;
+$tvOldDebates = NULL;
 
 //check for required fields
-$tvDescDebate = trim($_POST['tvDescDebate']);
+$tvOldDebates = trim($_POST['tvOldDebates']);
 
-$result = pg_query($bdOpen, "INSERT INTO debate(dt_inicio, dt_final) VALUES(NOW(), '$dt_final')");
+$result = pg_query($bdOpen, "INSERT INTO debate() VALUES(NOW())");
 
-/* 
-Fazer chave estrangeira entre fk_tema_id_tema e debate, para 
-referenciar qual debate está sendo executado.
-*/
 
 //check erro
 if ($result) {

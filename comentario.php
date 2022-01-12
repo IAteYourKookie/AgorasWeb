@@ -12,7 +12,9 @@ $comentario = trim($_POST['comentario']);
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario) VALUES(NOW(), '$comentario')");
 //falta adicionar as chaves estrangeiras, like e deslike
 
+
 //adicionar o select 
+/* $verComentario = pg_query($bdOpen, "SELECT comentario() FROM comentario = '$fk_usuarios_id_usuario'"); */
 
 //check erro
 if ($result) {

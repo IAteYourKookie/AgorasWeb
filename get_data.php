@@ -28,7 +28,7 @@ if (!is_null($nome)) {
 
 	if (pg_num_rows($query) > 0) {
 		$row = pg_fetch_array($query);
-		if ($senha == $row['senha']) {
+		if (hash('md5', $senha) == $row['senha']) {
 			$isAuth = true;
 		}
 	}

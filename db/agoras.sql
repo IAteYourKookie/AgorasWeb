@@ -19,15 +19,8 @@ CREATE TABLE CURTIDA (
     FK_TEMA_id_tema Integer
 );
 
-/* 
-TODO Lorena
-alterar tabela debate, pq temos dois id_tema
-tem que tirar o id_tema e deixar o fk_tema_id_tema
-*/
-
 CREATE TABLE DEBATE (
     id_debate Integer PRIMARY KEY AUTO_INCREMENT,
-    id_tema Integer,
     dt_inicio DATE,
     dt_final DATE,
     FK_TEMA_id_tema Integer
