@@ -31,6 +31,8 @@ colocar a data inicial como a data atual (now) e já definir a data final
 ☐ Ver se o tema mais atual na tabela debate ainda está valido
 $dataAtual = now();
 SELECT * from debate WHERE (dt_final > '$dataAtual') 
+se retornar alguma linha, significa que existe um tema em andamento ainda,
+se não retornar, é necessário pegar um tema novo:
 ☐ Se estiver, carregar ele no dropdown
 ☐ Se não estiver válido, pegar o tema com mais curtidas e que não está associado a tabela debate
 
