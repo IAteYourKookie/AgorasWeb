@@ -6,11 +6,13 @@ $response = array();
 
 $titulo = NULL;
 $descricao = NULL;
-$id_usuario = NULL;
+$fk_usuarios_id_usuario = NULL;
 
 //check for required fields
 $titulo = trim($_POST['titulo']);
 $descricao = trim($_POST['descricao']);
+$fk_usuarios_id_usuario = trim($_POST['fk_usuarios_id_usuario']);
+
 
 // insert temas 
 // chamar o id do usuario 
