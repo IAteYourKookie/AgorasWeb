@@ -11,7 +11,7 @@ $tvDebates = NULL;
 //check for required fields
 $tvDescDebate = trim($_POST['tvDescDebate']);
 
-$result = pg_query($bdOpen, "INSERT INTO debate(dt_inicio, dt_final) VALUES(NOW(), '$dt_final')");
+/* $result = pg_query($bdOpen, "INSERT INTO debate(dt_inicio, dt_final) VALUES(NOW(), '$dt_final')"); */
 
 /* 
 Fazer chave estrangeira entre fk_tema_id_tema e debate, para 

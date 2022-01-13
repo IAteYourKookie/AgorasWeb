@@ -9,7 +9,7 @@ $tvOldDebates = NULL;
 //check for required fields
 $tvOldDebates = trim($_POST['tvOldDebates']);
 
-$result = pg_query($bdOpen, "INSERT INTO debate() VALUES(NOW())");
+/* $result = pg_query($bdOpen, "INSERT INTO debate() VALUES(NOW())"); */
 
 
 //check erro

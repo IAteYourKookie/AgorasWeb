@@ -10,7 +10,9 @@ CREATE TABLE USUARIOS (
     nome VARCHAR(50),
     nome_de_usuario VARCHAR(50),
     senha VARCHAR(130),
-    email VARCHAR(50)
+    email VARCHAR(50),
+    bio VARCHAR(150),
+    pfp VARCHAR(50),
 );
 
 CREATE TABLE CURTIDA (
