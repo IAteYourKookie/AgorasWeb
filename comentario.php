@@ -9,10 +9,11 @@ $comentario = NULL;
 //check for required fields
 $comentario = trim($_POST['comentario']);
 
-$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario) VALUES(NOW(), '$comentario')");
+$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, usuarios.fk_usuarios_id_usuario AS usuarios FROM comentario INNER JOIN usuarios ON usuarios.fk_usuarios_id_usuario = comentario.id_comentario) VALUES(NOW(), '$comentario', fk_usuarios_id_usuario)");
 //falta adicionar as chaves estrangeiras, like e deslike
 
 //adicionar o select 
+//$query = pg_query($bdOpen, "SELECT * FROM comentario");
 
 //check erro
 if ($result) {
