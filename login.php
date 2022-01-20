@@ -4,6 +4,7 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
+// declarando variaveis
 $nome = NULL;
 $senha = NULL;
 
