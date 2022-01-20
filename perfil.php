@@ -26,7 +26,9 @@ $editBio = NULL;
 $imgEditPhoto = NULL; // imagem de upload
 $btnEditSave = NULL;
 
-$result = pg_query($bdOpen, "INSERT INTO perfil() VALUES()");
+$result = pg_query($bdOpen, "UPDATE perfil() VALUES()");
+
+
 
 
 //check erro
@@ -37,8 +39,9 @@ if ($result) {
     $response["error"] = "Error BD: " . pg_last_error($bdOpen);
 }
 
-// imagem cod 
-if (isset($_FILES['imgEditPhoto'])) {
+
+// upload de imagem codigo
+/* if (isset($_FILES['imgEditPhoto'])) {
     $msg = false;
 
     $arquivo = strtolower(substr($_FILES['imgEditPhoto']['name'], -4));
@@ -47,7 +50,7 @@ if (isset($_FILES['imgEditPhoto'])) {
 
     move_uploaded_file($_FILES['imgEditPhoto']['tmp_name'], $dir . $newarquivo);
 
-    $sql = "INSERT INTO arquivo(id, arquivo, data_photo) VALUES(null, '$newarquivo', NOW());";
+    $sql = "INSERT INTO usuarios(id_usuario, pfp) VALUES(null, '$newarquivo');";
     if (mysqli_query($dbOpen, $sql)) {
         $msg = "Arquivo enviado com sucesso!!";
     } else {
@@ -58,7 +61,7 @@ if (isset($_FILES['imgEditPhoto'])) {
     if ($msg != false) {
         echo "<p>$msg</p>";
     }
-}
+} */
 
 pg_close($bdOpen);
 echo json_encode($response);
