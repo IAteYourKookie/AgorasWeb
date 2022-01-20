@@ -60,7 +60,7 @@ $result = pg_query($bdOpen, "SELECT t.* FROM tema as t LEFT JOIN debate as d ON 
         $id_tema = $row['id_tema'];
         echo $id_tema . 'chave';
         //ou tenho que usar isso?
-        $id_tema = $row[0] . 'indice'; //ESSE EU SEI QUE DA CERTO, SO NAO SEI O DE CIMA
+        echo $id_tema = $row[0] . 'indice'; //ESSE EU SEI QUE DA CERTO, SO NAO SEI O DE CIMA
         //ou os dois fazem a mesma coisa?
     }
 
