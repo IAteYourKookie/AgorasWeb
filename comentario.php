@@ -29,7 +29,6 @@ if ($result) {
     $response["error"] = "Error BD: " . pg_last_error($bdOpen);
 }
 
-echo $login;
 
 pg_close($bdOpen);
 echo json_encode($response);

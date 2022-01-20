@@ -5,9 +5,11 @@ require "./configs/conexao.php";
 $response = array();
 
 $tvOldDebates = NULL;
+$tvDebates = NULL;
 
 //check for required fields
 $tvOldDebates = trim($_POST['tvOldDebates']);
+$tvDebates = trim($_POST['tvDebate']);
 
 /* $result = pg_query($bdOpen, "INSERT INTO debate() VALUES(NOW())"); */
 
