@@ -39,16 +39,8 @@ if (pg_num_rows($result) > 0) {
     //fazer um select dos temas que não estão na tabela debate
     //com esse select, fazer a relação com as linhas de curtida e pegar a que tiver mais
     
-    $result = pg_query($bdOpen, "SELECT t.* FROM tema as t 
-    LEFT JOIN debate as d
-    ON t.id_tema = d.FK_TEMA_id_tema
-    WHERE  d.FK_TEMA_id_tema is null");
+    $result = pg_query($bdOpen, "SELECT t.* FROM tema as t LEFT JOIN debate as d ON t.id_tema = d.FK_TEMA_id_tema WHERE  d.FK_TEMA_id_tema is null");
     $cont = pg_num_rows($result);
-    $row = pg_fetch_array($result);
-    $id_tema = $row['id_tema'];
-    echo $id_tema;
-    $id_tema = $row[0];
-    echo $id_tema;
     for ($i=0; $i<$cont; $i++) {
         $row = pg_fetch_array($result);
         //isso aqui funciona? 
@@ -59,6 +51,18 @@ if (pg_num_rows($result) > 0) {
         //ou os dois fazem a mesma coisa?
     }
 }
+
+$result = pg_query($bdOpen, "SELECT t.* FROM tema as t LEFT JOIN debate as d ON t.id_tema = d.FK_TEMA_id_tema WHERE  d.FK_TEMA_id_tema is null");
+    $cont = pg_num_rows($result);
+    for ($i=0; $i<$cont; $i++) {
+        $row = pg_fetch_array($result);
+        //isso aqui funciona? 
+        $id_tema = $row['id_tema'];
+        echo $id_tema . 'chave';
+        //ou tenho que usar isso?
+        $id_tema = $row[0] . 'indice'; //ESSE EU SEI QUE DA CERTO, SO NAO SEI O DE CIMA
+        //ou os dois fazem a mesma coisa?
+    }
 
 /* 
 Fazer chave estrangeira entre fk_tema_id_tema e debate, para 
