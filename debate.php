@@ -24,52 +24,38 @@ $result = pg_query($bdOpen, "SELECT * FROM debate WHERE (dt_final > '$dataAtual'
 if (pg_num_rows($result) > 0) {
     //carregar o debate mais atual
     $row = pg_fetch_array($result);
-    $id_tema = $row[3];
+    $id_tema = $row['fk_tema_id_tema'];
 
     $result = pg_query($bdOpen, "SELECT * FROM tema WHERE (id_tema = $id_tema)");
     $row = pg_fetch_array($result);
-    $tvTitleTheme = $row[1];
-    $tvDescDebate = $row[2];
-    //echo $tvTitleTheme;
-    //echo $tvDescDebate;
-    //carregar comentarios
-} else {
-    //carregar um tema novo pro debate
-    //usar select count()
-    //fazer um select dos temas que não estão na tabela debate
-    //com esse select, fazer a relação com as linhas de curtida e pegar a que tiver mais
+    $tvTitleTheme = $row['titulo'];
+    $tvDescDebate = $row['descricao'];
     
-    $result = pg_query($bdOpen, "SELECT t.* FROM tema as t LEFT JOIN debate as d ON t.id_tema = d.FK_TEMA_id_tema WHERE  d.FK_TEMA_id_tema is null");
-    $cont = pg_num_rows($result);
-    for ($i=0; $i<$cont; $i++) {
-        $row = pg_fetch_array($result);
-        //isso aqui funciona? 
-        $id_tema = $row['id_tema'];
-        echo $id_tema;
-        //ou tenho que usar isso?
-        $id_tema = $row[0]; //ESSE EU SEI QUE DA CERTO, SO NAO SEI O DE CIMA
-        //ou os dois fazem a mesma coisa?
-    }
+    //carregar comentarios
+
+} else {
+
+    //tema mais votado
+    $result = pg_query($bdOpen, "SELECT curtida.fk_tema_id_tema, COUNT(*)
+    FROM curtida LEFT JOIN debate as d
+    ON curtida.fk_tema_id_tema = d.fk_tema_id_tema
+    WHERE d.FK_TEMA_id_tema is null
+    GROUP BY curtida.fk_tema_id_tema
+    ORDER BY COUNT(*) DESC LIMIT 1");
+    $row = pg_fetch_array($result); 
+    $tema_ganhador = $row['fk_tema_id_tema'];
+
+    //inserção na tabela debate
+    $dt_final = date("Y-m-d", strtotime('+1 week'));
+    pg_query($bdOpen, "INSERT INTO debate (dt_inicio, dt_final, fk_tema_id_tema)
+    values ($dataAtual, $dt_final, $tema_ganhador)");  //pode commit?
+
+    //preenchendo tela
+    $result = pg_query($bdOpen, "SELECT * FROM tema WHERE (id_tema = $tema_ganhador)");
+    $row = pg_fetch_array($result);
+    $tvTitleTheme = $row['titulo'];
+    $tvDescDebate = $row['descricao'];
 }
-
-$result = pg_query($bdOpen, "SELECT t.* FROM tema as t LEFT JOIN debate as d ON t.id_tema = d.FK_TEMA_id_tema WHERE  d.FK_TEMA_id_tema is null");
-    $cont = pg_num_rows($result);
-    for ($i=0; $i<$cont; $i++) {
-        $row = pg_fetch_array($result);
-        //isso aqui funciona? 
-        $id_tema = $row['id_tema'];
-        echo $id_tema . 'chave';
-        //ou tenho que usar isso?
-        echo $id_tema = $row[0] . 'indice'; //ESSE EU SEI QUE DA CERTO, SO NAO SEI O DE CIMA
-        //ou os dois fazem a mesma coisa?
-    }
-
-/* 
-Fazer chave estrangeira entre fk_tema_id_tema e debate, para 
-referenciar qual debate está sendo executado.
-*/
-
-
 
 //check erro
 if ($result) {
@@ -81,4 +67,3 @@ if ($result) {
 
 pg_close($bdOpen);
 echo json_encode($response);
-?>
