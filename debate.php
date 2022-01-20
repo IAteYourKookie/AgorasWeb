@@ -30,13 +30,29 @@ if (pg_num_rows($result) > 0) {
     $row = pg_fetch_array($result);
     $tvTitleTheme = $row[1];
     $tvDescDebate = $row[2];
-    echo $tvTitleTheme;
-    echo $tvDescDebate;
+    //echo $tvTitleTheme;
+    //echo $tvDescDebate;
+    //carregar comentarios
 } else {
     //carregar um tema novo pro debate
     //usar select count()
+    //fazer um select dos temas que não estão na tabela debate
+    //com esse select, fazer a relação com as linhas de curtida e pegar a que tiver mais
     
-
+    $result = pg_query($bdOpen, "SELECT t.* FROM tema as t 
+    LEFT JOIN debate as d
+    ON t.id_tema = d.FK_TEMA_id_tema
+    WHERE  d.FK_TEMA_id_tema is null");
+    $cont = pg_num_rows($result);
+    for ($i=0; $i<$cont; $i++) {
+        $row = pg_fetch_array($result);
+        //isso aqui funciona? 
+        $id_tema = $row['id_tema'];
+        echo $id_tema;
+        //ou tenho que usar isso?
+        $id_tema = $row[0]; //ESSE EU SEI QUE DA CERTO, SO NAO SEI O DE CIMA
+        //ou os dois fazem a mesma coisa?
+    }
 }
 
 
@@ -57,3 +73,4 @@ if ($result) {
 
 pg_close($bdOpen);
 echo json_encode($response);
+?>
