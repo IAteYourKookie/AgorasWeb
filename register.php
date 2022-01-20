@@ -17,14 +17,14 @@ if (isset($_POST['newEmail']) && isset($_POST['newName']) && isset($_POST['newLo
 	$newPassword = hash('md5', trim($_POST['newPassword']));
 
 	// verificando se usuario existe
-	$usuario_existe = pg_query($bdOpen, "SELECT email FROM usuarios WHERE email='$newEmail'");
+	$usuario_existe = pg_query($bdOpen, "SELECT email FROM usuario WHERE email='$newEmail'");
 	// check for empty result
 	if (pg_num_rows($usuario_existe) > 0) {
 		$response["success"] = 0;
 		$response["error"] = "usuario ja cadastrado";
 	} else {
 		// mysql inserting a new row
-		$result = pg_query($bdOpen, "INSERT INTO usuarios(nome, nome_de_usuario, senha, email) VALUES('$newName', '$newLogin', '$newPassword', '$newEmail')");
+		$result = pg_query($bdOpen, "INSERT INTO usuario(nome, nome_de_usuario, senha, email) VALUES('$newName', '$newLogin', '$newPassword', '$newEmail')");
 
 		if ($result) {
 			$response["success"] = 1;

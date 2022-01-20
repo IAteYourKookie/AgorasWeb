@@ -50,7 +50,7 @@ if ($result) {
 
     move_uploaded_file($_FILES['imgEditPhoto']['tmp_name'], $dir . $newarquivo);
 
-    $sql = "INSERT INTO usuarios(id_usuario, pfp) VALUES(null, '$newarquivo');";
+    $sql = "INSERT INTO usuario(id_usuario, pfp) VALUES(null, '$newarquivo');";
     if (mysqli_query($dbOpen, $sql)) {
         $msg = "Arquivo enviado com sucesso!!";
     } else {

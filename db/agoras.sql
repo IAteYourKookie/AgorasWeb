@@ -5,7 +5,7 @@ CREATE TABLE TEMA (
     FK_USUARIOS_id_usuario Integer
 );
 
-CREATE TABLE USUARIOS (
+CREATE TABLE USUARIO (
     id_usuario Integer PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
     nome_de_usuario VARCHAR(50),

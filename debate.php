@@ -34,6 +34,9 @@ if (pg_num_rows($result) > 0) {
     echo $tvDescDebate;
 } else {
     //carregar um tema novo pro debate
+    //usar select count()
+    
+
 }
 
 
