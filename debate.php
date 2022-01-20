@@ -44,6 +44,11 @@ if (pg_num_rows($result) > 0) {
     ON t.id_tema = d.FK_TEMA_id_tema
     WHERE  d.FK_TEMA_id_tema is null");
     $cont = pg_num_rows($result);
+    $row = pg_fetch_array($result);
+    $id_tema = $row['id_tema'];
+    echo $id_tema;
+    $id_tema = $row[0];
+    echo $id_tema;
     for ($i=0; $i<$cont; $i++) {
         $row = pg_fetch_array($result);
         //isso aqui funciona? 
@@ -54,7 +59,6 @@ if (pg_num_rows($result) > 0) {
         //ou os dois fazem a mesma coisa?
     }
 }
-
 
 /* 
 Fazer chave estrangeira entre fk_tema_id_tema e debate, para 
