@@ -30,7 +30,7 @@ if (pg_num_rows($result) > 0) {
     $row = pg_fetch_array($result);
     $tvTitleTheme = $row['titulo'];
     $tvDescDebate = $row['descricao'];
-    
+
     //carregar comentarios
 
 } else {
@@ -48,7 +48,7 @@ if (pg_num_rows($result) > 0) {
     //inserção na tabela debate
     $dt_final = date("Y-m-d", strtotime('+1 week'));
     pg_query($bdOpen, "INSERT INTO debate (dt_inicio, dt_final, fk_tema_id_tema)
-    values ($dataAtual, $dt_final, $tema_ganhador)");  //pode commit?
+    values ($dataAtual, $dt_final, $tema_ganhador)"); 
 
     //preenchendo tela
     $result = pg_query($bdOpen, "SELECT * FROM tema WHERE (id_tema = $tema_ganhador)");
