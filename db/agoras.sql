@@ -32,6 +32,8 @@ CREATE TABLE COMENTARIO (
     id_comentario Integer PRIMARY KEY AUTO_INCREMENT,
     data_envio DATE,
     comentario VARCHAR(500),
+    deslike_comentario Integer,
+    like_comentario Integer,
     FK_DEBATE_id_debate Integer,
     FK_USUARIO_id_usuario Integer
 );

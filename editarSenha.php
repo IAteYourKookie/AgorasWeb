@@ -5,9 +5,19 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-// edição perfil
-$imgPfp = NULL; // imagem atual 
-$imgEditPhoto = NULL; // imagem de upload
+// redefinir senha
+$oldPass = NULL;
+$newPass = NULL;
+$passCheck = NULL;
+
+// senha antiga
+$etOldPassword = NULL;
+$etOldPassword = NULL;
+
+//SENHA NOVA 
+$etSaveNewPassaword = NULL;
+$btnSave = NULL;
+
 
 //session de usuario
 $login = trim($_GET['login']);
@@ -21,7 +31,6 @@ $newBio = trim($_POST['editBio']);
 $result = pg_query($bdOpen, "UPDATE perfil() VALUES()");
 
 
-
 //check erro
 if ($result) {
     $response["success"] = 1;
@@ -29,6 +38,7 @@ if ($result) {
     $response["success"] = 0;
     $response["error"] = "Error BD: " . pg_last_error($bdOpen);
 }
+
 pg_close($bdOpen);
 echo json_encode($response);
 ?>
