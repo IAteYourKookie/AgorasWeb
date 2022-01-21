@@ -11,7 +11,7 @@ $login = trim($_GET['login']);
 
 $comentario = trim($_POST['comentario']);
 
-$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuarios_id_usuario) VALUES(NOW(), '$comentario',(SELECT id_usuario from usuario where email='$login'));");
+$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario) VALUES(NOW(), '$comentario',(SELECT id_usuario from usuario where email='$login'));");
 
 /*
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario)
