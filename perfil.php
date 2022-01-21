@@ -26,6 +26,11 @@ $editBio = NULL;
 $imgEditPhoto = NULL; // imagem de upload
 $btnEditSave = NULL;
 
+//session de usuario
+//$login = trim($_GET['login]);
+
+
+//id => (SELECT id_usuario from usuario where email='$login');
 $result = pg_query($bdOpen, "UPDATE perfil() VALUES()");
 
 

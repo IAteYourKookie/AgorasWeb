@@ -5,10 +5,10 @@ require "./configs/conexao.php";
 $response = array();
 
 $resposta = NULL;
-$etMessage = NULL;
 
 //alterar para resposta
 $resposta = trim($_POST['resposta']);
+//$login = trim($_GET['login]);
 
 
 /* $result = pg_query($bdOpen, "INSERT INTO resposta(
@@ -19,7 +19,7 @@ $resposta = trim($_POST['resposta']);
     resposta.fk_usuarios_id_usuario = usuarios.id_usuario 
 "); */
 
-
+//id => (SELECT id_usuario from usuario where email='$login');
 $result = pg_query($bdOpen, "INSERT INTO resposta(data_envio, resposta) VALUES(NOW(), '$resposta')");
 
 // adicionar select 

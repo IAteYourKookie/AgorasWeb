@@ -8,6 +8,7 @@ $titulo = NULL;
 $descricao = NULL;
 
 //check for required fields
+$login = trim($_GET['login']);
 $titulo = trim($_POST['titulo']);
 $descricao = trim($_POST['descricao']);
 
@@ -26,7 +27,7 @@ ON tema.fk_usuarios_id_usuario = usuarios.id_usuario;");
 /* INSERT INTO public.tema(titulo, descricao, fk_usuarios_id_usuario) 
 VALUES('um titulo bem legal', 'esse e um treinamento muito certo', 10000); */
 
-$result = pg_query($bdOpen, "INSERT INTO public.tema(titulo, descricao, /* fk_usuarios_id_usuario */) VALUES('$titulo','$descricao', /* '$fk_usuarios_id_usuario' */);");
+$result = pg_query($bdOpen, "INSERT INTO public.tema(titulo, descricao, fk_usuarios_id_usuario) VALUES('$titulo','$descricao', (SELECT id_usuario from usuario where email='$login'));");
 
 //falta adicionar o id do usuario na tabela de temas
 
