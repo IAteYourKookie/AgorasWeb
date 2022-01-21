@@ -2,6 +2,7 @@
 /*
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
+ * 
  */
 require "./configs/conexao.php";
 
