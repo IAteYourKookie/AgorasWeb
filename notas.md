@@ -51,14 +51,3 @@ o usuario ja curtiu)
 
 ############################################################
 
-## PHP - BackEnd - Charles e Shayane - 16/01
-
-☐ iniciar edição de perfil e senha - UPDATE
-☐ adicionar (comentário) - SELECT
-☐ adicionar (resposta) - SELECT
-☐ iniciar tabela DEBATE - INSERT
-☐ resolver problema da tabela curtida
-
-**ver video sobre chaves estrangeiras no pgAdmin**
-
-OBS: -> não esquecer dos códigos com chaves estrangeiras.
