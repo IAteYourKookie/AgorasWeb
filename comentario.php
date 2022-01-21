@@ -5,14 +5,16 @@ require "./configs/conexao.php";
 $response = array();
 
 $comentario = NULL;
+$id = NULL;
+$login = NULL;
 
 //check for required fields
 $login = trim($_GET['login']);
 
 $comentario = trim($_POST['comentario']);
 
-$result = pg_query($bdOpen,"SELECT id_usuario from usuario where email='$login'");
-$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, id_usuario) VALUES(NOW(), '$comentario','$result')");
+$id = pg_query($bdOpen, "SELECT id_usuario from usuario where email='$login';");
+$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuarios_id_usuario) VALUES(NOW(), '$comentario','$id');");
 
 /*
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario)

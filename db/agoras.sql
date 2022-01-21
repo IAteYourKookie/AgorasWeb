@@ -2,7 +2,7 @@ CREATE TABLE TEMA (
     id_tema Integer PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(50),
     descricao VARCHAR(200),
-    FK_USUARIOS_id_usuario Integer
+    FK_USUARIO_id_usuario Integer
 );
 
 CREATE TABLE USUARIO (
@@ -17,7 +17,7 @@ CREATE TABLE USUARIO (
 
 CREATE TABLE CURTIDA (
     id_curtida Integer PRIMARY KEY AUTO_INCREMENT,
-    FK_USUARIOS_id_usuario Integer,
+    FK_USUARIO_id_usuario Integer,
     FK_TEMA_id_tema Integer
 );
 
@@ -33,7 +33,7 @@ CREATE TABLE COMENTARIO (
     data_envio DATE,
     comentario VARCHAR(500),
     FK_DEBATE_id_debate Integer,
-    FK_USUARIOS_id_usuario Integer
+    FK_USUARIO_id_usuario Integer
 );
 
 CREATE TABLE RESPOSTA (
@@ -41,17 +41,17 @@ CREATE TABLE RESPOSTA (
     resposta VARCHAR(500),
     data_envio DATE,
     FK_COMENTARIO_id_comentario Integer,
-    FK_USUARIOS_id_usuario Integer
+    FK_USUARIO_id_usuario Integer
 );
  
 ALTER TABLE TEMA ADD CONSTRAINT FK_TEMA_2
-    FOREIGN KEY (FK_USUARIOS_id_usuario)
-    REFERENCES USUARIOS (id_usuario)
+    FOREIGN KEY (FK_USUARIO_id_usuario)
+    REFERENCES USUARIO (id_usuario)
     ON DELETE CASCADE;
  
 ALTER TABLE CURTIDA ADD CONSTRAINT FK_CURTIDA_2
-    FOREIGN KEY (FK_USUARIOS_id_usuario)
-    REFERENCES USUARIOS (id_usuario)
+    FOREIGN KEY (FK_USUARIO_id_usuario)
+    REFERENCES USUARIO (id_usuario)
     ON DELETE CASCADE;
  
 ALTER TABLE CURTIDA ADD CONSTRAINT FK_CURTIDA_3
