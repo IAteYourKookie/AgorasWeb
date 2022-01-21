@@ -7,10 +7,13 @@ $response = array();
 $comentario = NULL;
 
 //check for required fields
+$login = trim($_POST['login']);
+
 $comentario = trim($_POST['comentario']);
 
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario) VALUES(NOW(), '$comentario')");
 
+echo "login";
 echo $login;
 
 /*
