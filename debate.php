@@ -57,7 +57,6 @@ if (pg_num_rows($result) > 0) {
     $tvDescDebate = $row['descricao'];
 
     //recyclerview em branco
-
 }
 
 //check erro
