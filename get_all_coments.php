@@ -37,6 +37,7 @@ if (pg_num_rows($result) > 0) {
         $comentario["comentario"] = $row["comentario"];
         $comentario["idUsuario"] = $row["fk_usuario_id_usuario"];
         $idUser = (int)$comentario["idUsuario"];
+        $response=$idUser;
         $comentario["nomePerfil"] = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario=$idUser");
         //nome de usuario e img de perfil 
  
