@@ -8,16 +8,35 @@ $response = array();
 //session de usuario
 $login = trim($_POST['login']);
 
-// deletar antes: tema, curtida, comentario, resposta
 $query = pg_query($bdOpen, "SELECT id_usuario FROM usuario WHERE email='$login')");
 $row = pg_fetch_array($query);
 $id_usuario = $row['id_usuario'];
 
+$query = pg_query($bdOpen, "SELECT * FROM resposta WHERE fk_usuario_id_usuario = '$id_usuario'");
+$row = pg_fetch_array($query);
+if($row) {
+    pg_query($bdOpen, "DELETE FROM resposta WHERE fk_usuario_id_usuario = '$id_usuario'");
+}
+
+$query = pg_query($bdOpen, "SELECT * FROM comentario WHERE fk_usuario_id_usuario = '$id_usuario'");
+$row = pg_fetch_array($query);
+if($row) {
+    pg_query($bdOpen, "DELETE FROM comentario WHERE fk_usuario_id_usuario = '$id_usuario'");
+}
+
+$query = pg_query($bdOpen, "SELECT * FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario'");
+$row = pg_fetch_array($query);
+if($row) {
+    pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario'");
+}
+
 $query = pg_query($bdOpen, "SELECT * FROM tema WHERE fk_usuario_id_usuario = '$id_usuario'");
+$row = pg_fetch_array($query);
+if($row) {
+    pg_query($bdOpen, "DELETE FROM tema WHERE fk_usuario_id_usuario = '$id_usuario'");
+}
 
-
-
-//$result = pg_query($bdOpen, "DELETE usuario WHERE id_usuario=(SELECT id_usuario from usuario where email='$login')");
+$result = $pg_query($bdOpen, "DELETE FROM usuario WHERE id_usuario = '$id_usuario'"); 
 
 //check erro
 if ($result) {

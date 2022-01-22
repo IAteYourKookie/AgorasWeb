@@ -26,7 +26,6 @@ if ($result) {
     $response["error"] = "Error BD: " . pg_last_error($bdOpen);
 }
 
-$response = $newEmail +" "+ $newBio;
 pg_close($bdOpen);
 echo json_encode($response);
 ?>
