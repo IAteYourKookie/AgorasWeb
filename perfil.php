@@ -19,10 +19,7 @@ $email = "";
 $bio = ""; 
 $imgPfp = NULL; // imagem atual 
 
-
 //id => (SELECT id_usuario from usuario where email='$login');
-
-
 
 //check erro
 if ($result) {
