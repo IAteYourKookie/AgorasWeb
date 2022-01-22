@@ -8,6 +8,8 @@ require "./configs/conexao.php";
  * A resposta e no formato JSON.
  */
  
+
+
 // array que guarda a resposta da requisicao
 $response = array();
  
@@ -19,15 +21,15 @@ if (pg_num_rows($result) > 0) {
     // Caso existam produtos no BD, eles sao armazenados na 
 	// chave "products". O valor dessa chave e formado por um 
 	// array onde cada elemento e um produto.
-    $response[""] = array(); //aqui dentro estava comentario, o que colocar para pegar a curtida
+    $response["id_curtida"] = array(); 
  
     while ($row = pg_fetch_array($result)) {
         $curtida = array();
         $curtida["id_curtida"] = $row["id_curtida"];
-        $curtida[""] = $row[""];
+        /* $curtida[""] = $row[""]; */
  
         // Adiciona o produto no array de produtos.
-        array_push($response[""], $comentario); 
+        array_push($response["id_curtida"], $curtida); 
     }
     // Caso haja produtos no BD, o cliente 
 	// recebe a chave "success" com valor 1.

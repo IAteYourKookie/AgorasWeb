@@ -7,7 +7,8 @@ require "./configs/conexao.php";
  * Nao sao necessarios nenhum tipo de parametro.
  * A resposta e no formato JSON.
  */
- 
+
+
 // array que guarda a resposta da requisicao
 $response = array();
  
@@ -34,6 +35,7 @@ if (pg_num_rows($result) > 0) {
         $comentario = array();
         $comentario["id_comentario"] = $row["id_comentario"];
         $comentario["comentario"] = $row["comentario"];
+        //nome de usuario e img de perfil 
  
         // Adiciona o produto no array de produtos.
         array_push($response["comentario"], $comentario);
