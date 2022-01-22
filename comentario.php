@@ -9,10 +9,12 @@ $comentario = NULL;
 //check for required fields
 $login = trim($_GET['login']);
 
+
 $comentario = trim($_POST['comentario']);
 
 $id=pg_query($bdOpen, "(SELECT id_usuario from usuario where email='$login')"); 
-$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario) VALUES(NOW(), '$comentario',$id);");
+print_r($id);
+//$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario) VALUES(NOW(), '$comentario',$id);");
 
 /*
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario)
