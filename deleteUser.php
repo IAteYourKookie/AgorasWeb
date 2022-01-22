@@ -36,7 +36,7 @@ if($row) {
     pg_query($bdOpen, "DELETE FROM tema WHERE fk_usuario_id_usuario = '$id_usuario'");
 }
 
-$result = $pg_query($bdOpen, "DELETE FROM usuario WHERE id_usuario = '$id_usuario'"); 
+$result = pg_query($bdOpen, "DELETE FROM usuario WHERE id_usuario = '$id_usuario'"); 
 
 //check erro
 if ($result) {
