@@ -40,23 +40,12 @@ if (pg_num_rows($result) > 0) {
         $query = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario='$idUser'");
         $row = pg_fetch_array($query);
         $row = $row['nome'];
-        echo $row;
         $comentario["nomePerfil"]= $row;
 
-        //$comentario["nomePerfil"] ; 
-
-        //$comentario["nomePerfil"] = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario=$idUser");
-        /*Oi, na linha 40 vc não pode fazer dessa forma. 
-        O pgquery retorna um objeto complexo que não é somente o
-        nome que vc quer. Vc precisa pegar o resultado do 
-        pgquery, verificar se houve resoltado e aí acessar o 
-        valor através da chave da tabela. Não dá pra fazer essa 
-        atribuição direta do jeito que vc fez.*/
-
-
-
-
         //nome de usuario e img de perfil 
+
+
+
 
         // Adiciona o produto no array de produtos.
         array_push($response["comentario"], $comentario);
