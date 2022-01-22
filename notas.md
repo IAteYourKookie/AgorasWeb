@@ -38,7 +38,7 @@ se não retornar, é necessário pegar um tema novo:
 
 ## Abriu a tela de votação:
 
-☐ Consulta a Tabela Tema e faz um array com os temas que não tem um correspondente na Tabela Debate
+☑ Consulta a Tabela Tema e faz um array com os temas que não tem um correspondente na Tabela Debate
 ☐ Enquanto percorrer o array para preencher o RecyclerView com os temas, consultar com o id de cada tema
 a quantidade de curtidas que ele possui da Tabela Curtida **e** verificar se o usuário logado ja curtiu
 esse tema (faz um select das linhas de curtidas que possui o id_tema do que está no array no momento AND
