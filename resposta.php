@@ -12,11 +12,11 @@ $resposta = trim($_POST['resposta']);
 
 
 /* $result = pg_query($bdOpen, "INSERT INTO resposta(
-    fk_comentario_id_comentario, fk_usuarios_id_usuario
-    ) SELECT resposta.fk_resposta_id_resposta, usuarios.fk_usuarios_usuario
+    fk_comentario_id_comentario, fk_usuario_id_usuario
+    ) SELECT resposta.fk_resposta_id_resposta, usuarios.fk_usuario_usuario
     FROM resposta, usuarios INNER JOIN resposta 
     ON resposta.fk_resposta_id_resposta = resposta.id_resposta AND
-    resposta.fk_usuarios_id_usuario = usuarios.id_usuario 
+    resposta.fk_usuario_id_usuario = usuarios.id_usuario 
 "); */
 
 //id => (SELECT id_usuario from usuario where email='$login');

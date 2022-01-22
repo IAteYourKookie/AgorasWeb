@@ -18,14 +18,14 @@ provavelmente são feitos bastante pelo AndroidStudio, mas vou fazer a lógica a
 // verificar se tem algum registro de usuario e do tema na tabela curtida
 
 
-$sql = "SELECT (fk_usuarios_id_usuario, fk_tema_id_tema)
+$sql = "SELECT (fk_usuario_id_usuario, fk_tema_id_tema)
 FROM curtida 
-WHERE fk_usuarios_id_usuario = '$id_usuario' 
+WHERE fk_usuario_id_usuario = '$id_usuario' 
 AND fk_tema_id_tema = '$id_tema';";
 $result = pg_query($bdOpen, $sql);
 
 if (pg_fetch_array($sql)) {
-    $del = "DELETE FROM curtida WHERE FK_USUARIOS_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'";
+    $del = "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'";
 } else { 
     //Fazer insert com 2 tabelas diferentes 
 

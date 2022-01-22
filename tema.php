@@ -18,16 +18,16 @@ $idUsuario = trim($_SESSION['idUsuario']); */
 // insert temas 
 // chamar o id do usuario 
 
-/* $result = pg_query($bdOpen, "INSERT INTO tema(fk_usuarios_id_usuario) 
-SELECT tema.fk_usuarios_id_usuario 
+/* $result = pg_query($bdOpen, "INSERT INTO tema(fk_usuario_id_usuario) 
+SELECT tema.fk_usuario_id_usuario 
 FROM usuarios INNER JOIN tema 
-ON tema.fk_usuarios_id_usuario = usuarios.id_usuario;");
+ON tema.fk_usuario_id_usuario = usuarios.id_usuario;");
 */
 
-/* INSERT INTO public.tema(titulo, descricao, fk_usuarios_id_usuario) 
+/* INSERT INTO public.tema(titulo, descricao, fk_usuario_id_usuario) 
 VALUES('um titulo bem legal', 'esse e um treinamento muito certo', 10000); */
 
-$result = pg_query($bdOpen, "INSERT INTO public.tema(titulo, descricao, fk_usuarios_id_usuario) VALUES('$titulo','$descricao', (SELECT id_usuario from usuario where email='$login'));");
+$result = pg_query($bdOpen, "INSERT INTO public.tema(titulo, descricao, fk_usuario_id_usuario) VALUES('$titulo','$descricao', (SELECT id_usuario from usuario where email='$login'));");
 
 //falta adicionar o id do usuario na tabela de temas
 
