@@ -1,7 +1,7 @@
 
 <?php
 require "./configs/conexao.php";
-
+$response = array();
 
 // edição perfil
 $imgPfp = NULL; // imagem atual 
@@ -15,8 +15,13 @@ $newUser = trim($_POST['editUser']);//Nome de usuario
 $newEmail = trim($_POST['editEmail']);//novo email
 $newBio = trim($_POST['editBio']);//bio
 
+$imageFileType = strtolower(pathinfo(basename($_FILES["img"]["name"]),PATHINFO_EXTENSION));
+$image_base64 = base64_encode(file_get_contents($_FILES['img']['tmp_name']) );
+$img = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+
+
 //id => (SELECT id_usuario from usuario where email='$login');
-$result = pg_query($bdOpen, "UPDATE usuario SET nome='$newName', nome_de_usuario='$newUser', email ='$newEmail', bio ='$newBio' WHERE id_usuario=(SELECT id_usuario from usuario where email='$login')");
+$result = pg_query($bdOpen, "UPDATE usuario SET nome='$newName', nome_de_usuario='$newUser', email ='$newEmail', bio ='$newBio', pfp='$img' WHERE id_usuario=(SELECT id_usuario from usuario where email='$login')");
 
 //check erro
 if ($result) {
