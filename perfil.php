@@ -14,8 +14,6 @@ $login = trim($_POST['login']);
 $result = pg_fetch_array($query);
 $id_usuario = $row['id_usuario'];
 
-
-
 $nome = "";
 $usuario = "";
 $email = "";
