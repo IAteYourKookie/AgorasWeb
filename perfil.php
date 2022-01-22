@@ -11,10 +11,12 @@ $imgEditPhoto = NULL; // imagem de upload
 
 //session de usuario
 $login = trim($_POST['login']);
-$newName = trim($_POST['editName']);
-$newUser = trim($_POST['editUser']);
-$newEmail = trim($_POST['editEmail']);
-$newBio = trim($_POST['editBio']); 
+
+
+$nome = "";
+$userio = "";
+$email = "";
+$bio = ""; 
 
 
 //id => (SELECT id_usuario from usuario where email='$login');
