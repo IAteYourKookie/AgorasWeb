@@ -8,6 +8,14 @@ $response = array();
 //session de usuario
 $login = trim($_POST['login']);
 
+// deletar antes: tema, curtida, comentario, resposta
+$query = pg_query($bdOpen, "SELECT id_usuario from usuario where email='$login')");
+$row = pg_fetch_array($query);
+$id_usuario = $row['id_usuario'];
+
+$query = pg_query($bdOpen, "SELECT");
+
+
 //$result = pg_query($bdOpen, "DELETE usuario WHERE id_usuario=(SELECT id_usuario from usuario where email='$login')");
 
 //check erro

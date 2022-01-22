@@ -35,6 +35,7 @@ if (pg_num_rows($result) > 0) {
         $comentario = array();
         $comentario["id_comentario"] = $row["id_comentario"];
         $comentario["comentario"] = $row["comentario"];
+        $comentario["nomePerfil"] = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario=(SELECT id_usuario from usuario where email='$login')");
         //nome de usuario e img de perfil 
  
         // Adiciona o produto no array de produtos.
