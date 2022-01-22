@@ -16,7 +16,7 @@ $id=pg_query($bdOpen, "(SELECT id_usuario from usuario where email='$login')");
 print_r($login);
 echo "<br>";
 print_r($id);
-//$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario) VALUES(NOW(), '$comentario',$id);");
+$result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario) VALUES(NOW(), '$comentario',$id);");
 
 /*
 $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario)
@@ -33,6 +33,7 @@ FROM usuario INNER JOIN comentario ON comentario.id_comentario = usuario.fk_usua
 //check erro
 if ($result) {
     $response["success"] = 1;
+    return;
 } else {
     $response["success"] = 0;
     $response["error"] = "Error BD: " . pg_last_error($bdOpen);
