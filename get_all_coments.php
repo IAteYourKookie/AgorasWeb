@@ -39,7 +39,9 @@ if (pg_num_rows($result) > 0) {
         $idUser = (int)$comentario["idUsuario"];
         $query = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario='$idUser'");
         $row = pg_fetch_array($query);
+        $row = $row['nome'];
         echo $row;
+        $comentario["nomePerfil"]= $row;
 
         //$comentario["nomePerfil"] ; 
 
