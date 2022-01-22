@@ -11,7 +11,8 @@ $imgEditPhoto = NULL; // imagem de upload
 
 //session de usuario
 $login = trim($_POST['login']);
-
+$row = pg_fetch_array($query);
+$id_usuario = $row['id_usuario'];
 
 $nome = "";
 $userio = "";
