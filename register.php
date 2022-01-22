@@ -25,7 +25,7 @@ if (isset($_POST['newEmail']) && isset($_POST['newName']) && isset($_POST['newLo
 		$response["error"] = "usuario ja cadastrado";
 	} else {
 		// mysql inserting a new row
-		$result = pg_query($bdOpen, "INSERT INTO usuario(nome, nome_de_usuario, senha, email) VALUES('$newName', '$newLogin', '$newPassword', '$newEmail')");
+		$result = pg_query($bdOpen, "INSERT INTO usuario(nome, nome_de_usuario, senha, email, bio, pfp) VALUES('$newName', '$newLogin', '$newPassword', '$newEmail', '', '')");
 
 		if ($result) {
 			$response["success"] = 1;

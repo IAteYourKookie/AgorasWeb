@@ -9,11 +9,12 @@ $response = array();
 $login = trim($_POST['login']);
 
 // deletar antes: tema, curtida, comentario, resposta
-$query = pg_query($bdOpen, "SELECT id_usuario from usuario where email='$login')");
+$query = pg_query($bdOpen, "SELECT id_usuario FROM usuario WHERE email='$login')");
 $row = pg_fetch_array($query);
 $id_usuario = $row['id_usuario'];
 
-$query = pg_query($bdOpen, "SELECT");
+$query = pg_query($bdOpen, "SELECT * FROM tema WHERE fk_usuario_id_usuario = '$id_usuario'");
+
 
 
 //$result = pg_query($bdOpen, "DELETE usuario WHERE id_usuario=(SELECT id_usuario from usuario where email='$login')");
