@@ -26,10 +26,11 @@ $result = pg_query($bdOpen, $sql);
 
 if (pg_fetch_array($sql)) {
     $del = "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'";
+    // mudar o botão para 'não curtido'
 } else { 
-    //Fazer insert com 2 tabelas diferentes 
-
-    $insert = "INSERT INTO curtida() VALUES ()"; 
+    // pegar o id de usuario e o de debate
+    $insert = "INSERT INTO curtida(id_curtida) VALUES ()"; 
+    // mudar o botão para 'curtido'
 } 
 
 //check erro

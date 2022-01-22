@@ -12,10 +12,6 @@ $tvDebates = NULL;
 $tvDescDebate = trim($_POST['tvDescDebate']);
 $tvTitleTheme = trim($_POST['tvDescDebate']);
 
-/* 
-$result = pg_query($bdOpen, ""); 
-*/
-
 $dataAtual = date("Y-m-d");
 $result = pg_query($bdOpen, "SELECT * FROM debate WHERE (dt_final > '$dataAtual')");
 
@@ -34,7 +30,7 @@ if (pg_num_rows($result) > 0) {
     //carregar comentarios
 
 } else {
-
+    
     //tema mais votado
     $result = pg_query($bdOpen, "SELECT curtida.fk_tema_id_tema, COUNT(*)
     FROM curtida LEFT JOIN debate as d

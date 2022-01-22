@@ -45,7 +45,6 @@ for($i = 0; $i < $cont; $i++) {
 
 
 
-
 //check erro
 if ($result) {
     $response["success"] = 1;
