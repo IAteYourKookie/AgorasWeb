@@ -5,19 +5,19 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-// edição perfil
-$imgPfp = NULL; // imagem atual 
-$imgEditPhoto = NULL; // imagem de upload
-
 //session de usuario
 $login = trim($_POST['login']);
+$query = pg_query($bdOpen, "SELECT id_usuario FROM usuario WHERE email='$login')");
 $result = pg_fetch_array($query);
-$id_usuario = $row['id_usuario'];
+$id_usuario = $result['id_usuario'];
+
+$
 
 $nome = "";
 $usuario = "";
 $email = "";
 $bio = ""; 
+$imgPfp = NULL; // imagem atual 
 
 
 //id => (SELECT id_usuario from usuario where email='$login');
