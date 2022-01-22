@@ -9,7 +9,7 @@ $imgEditPhoto = NULL; // imagem de upload
 
 
 //session de usuario
-$login = trim($_GET['login']);
+$login = trim($_POST['login']);
 $newName = trim($_POST['editName']);
 $newUser = trim($_POST['editUser']);
 $newEmail = trim($_POST['editEmail']);

@@ -10,7 +10,7 @@ $imgPfp = NULL; // imagem atual
 $imgEditPhoto = NULL; // imagem de upload
 
 //session de usuario
-$login = trim($_GET['login']);
+$login = trim($_POST['login']);
 $newName = trim($_POST['editName']);
 $newUser = trim($_POST['editUser']);
 $newEmail = trim($_POST['editEmail']);
@@ -18,7 +18,6 @@ $newBio = trim($_POST['editBio']);
 
 
 //id => (SELECT id_usuario from usuario where email='$login');
-$result = pg_query($bdOpen, "UPDATE perfil() VALUES()");
 
 
 

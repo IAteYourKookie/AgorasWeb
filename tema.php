@@ -8,7 +8,7 @@ $titulo = NULL;
 $descricao = NULL;
 
 //check for required fields
-$login = trim($_GET['login']);
+$login = trim($_POST['login']);
 $titulo = trim($_POST['titulo']);
 $descricao = trim($_POST['descricao']);
 
