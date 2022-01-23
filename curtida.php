@@ -42,6 +42,8 @@ if (pg_fetch_array($sql)) {
 //check erro
 if ($result) {
     $response["success"] = 1;
+    $response["message"] = "Curtida alterada com sucesso";
+
 } else {
     $response["success"] = 0;
     $response["error"] = "Error BD: " . pg_last_error($bdOpen);
@@ -49,3 +51,4 @@ if ($result) {
 
 pg_close($bdOpen);
 echo json_encode($response);
+?>

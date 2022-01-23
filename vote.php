@@ -16,7 +16,7 @@ FROM curtida LEFT JOIN debate as d
 ON curtida.fk_tema_id_tema = d.fk_tema_id_tema
 WHERE d.FK_TEMA_id_tema is null
 GROUP BY curtida.fk_tema_id_tema 
-ORDER BY COUNT(*) DESC");  
+ORDER BY COUNT(*) DESC");
 
 
 $cont = pg_num_rows($query);
@@ -24,7 +24,7 @@ $item_tema = array(); // array individual de cada tema que vai aparecer na vota�
 // dentro do for eu inicializo o array novamente com chaves para facilitar a recuperação de dados
 $vote_tema = array(); // array que possuiu os arrays de temas de votação
 
-for($i = 0; $i < $cont; $i++) {
+for ($i = 0; $i < $cont; $i++) {
     $item_tema = array(
         "id_tema"   => "",
         "titulo"    => "",
@@ -38,20 +38,21 @@ for($i = 0; $i < $cont; $i++) {
     $item_tema["id_tema"] = $result['fk_tema_id_tema'];
     $item_tema["titulo"] = $conteudo['titulo'];
     $item_tema["descricao"] = $conteudo['descricao'];
-    $item_tema["curtidas"] = $result['curtidas']; 
+    $item_tema["curtidas"] = $result['curtidas'];
 
     $vote_tema[] = $item_tema; // array de arrays
 }
 
-
-
 //check erro
 if ($result) {
     $response["success"] = 1;
+    $response["message"] = "Votacao carregada";
+
+
 } else {
     $response["success"] = 0;
     $response["error"] = "Error BD: " . pg_last_error($bdOpen);
 }
-
 pg_close($bdOpen);
 echo json_encode($response);
+?>

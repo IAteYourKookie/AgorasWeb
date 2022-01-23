@@ -75,3 +75,4 @@ if (pg_num_rows($result) > 0) {
     // Converte a resposta para o formato JSON.
     echo json_encode($response);
 }
+?>

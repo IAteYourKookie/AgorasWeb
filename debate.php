@@ -26,9 +26,6 @@ if (isset($_POST['tvDescDebate']) && isset($_POST['tvDescDebate'])) {
         $tvTitleTheme = $row['titulo'];
         $tvDescDebate = $row['descricao'];
 
-
-        pg_close($bdOpen);
-        echo json_encode($response);
         //carregar comentarios
 
     } else {
@@ -53,10 +50,7 @@ if (isset($_POST['tvDescDebate']) && isset($_POST['tvDescDebate'])) {
         $row = pg_fetch_array($result);
         $tvTitleTheme = $row['titulo'];
         $tvDescDebate = $row['descricao'];
-
-        pg_close($bdOpen);
-        echo json_encode($response);
-
+        
         //recyclerview em branco
     }
 
@@ -64,17 +58,15 @@ if (isset($_POST['tvDescDebate']) && isset($_POST['tvDescDebate'])) {
     if ($result) {
         $response["success"] = 1;
 
-        $response["message"] = "Campoo titulo e descricao criado com sucesso";
+        $response["message"] = "Campo titulo e descricao criado com sucesso";
 
-        pg_close($bdOpen);
-        echo json_encode($response);
     } else {
         $response["success"] = 0;
         $response["error"] = "Error BD: " . pg_last_error($bdOpen);
-
-        pg_close($bdOpen);
-        echo json_encode($response);
     }
+    
+    pg_close($bdOpen);
+    echo json_encode($response);
 } else {
 
     $response["success"] = 0;
@@ -84,3 +76,4 @@ if (isset($_POST['tvDescDebate']) && isset($_POST['tvDescDebate'])) {
     pg_close($bdOpen);
     echo json_encode($response);
 }
+?>

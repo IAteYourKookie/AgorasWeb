@@ -34,23 +34,18 @@ if (pg_num_rows($result) > 0) {
     // Caso haja produtos no BD, o cliente 
 	// recebe a chave "success" com valor 1.
     $response["success"] = 1;
-	
-	pg_close($bdOpen);
- 
-    // Converte a resposta para o formato JSON.
-    echo json_encode($response);
+    $response["message"] = "Ha temas";
 	
 } else {
     // Caso nao haja produtos no BD, o cliente 
 	// recebe a chave "success" com valor 0. A chave "message" indica o 
 	// motivo da falha.
     $response["success"] = 0;
-    $response["message"] = "Nao ha curtidas";
+    $response["message"] = "Nao ha temas";
 	
-	// Fecha a conexao com o BD
-	pg_close($bdOpen);
- 
-    // Converte a resposta para o formato JSON.
-    echo json_encode($response);
+
 }
+pg_close($bdOpen);
+echo json_encode($response);
+
 ?>

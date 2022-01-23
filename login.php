@@ -45,6 +45,6 @@ else {
 		$response["error"] = "usuario ou senha não confere";
 	}
 }
-
 pg_close($bdOpen);
 echo json_encode($response);
+?>

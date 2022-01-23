@@ -46,3 +46,4 @@ if ($isAuth) {
 
 pg_close($bdOpen);
 echo json_encode($response);
+?>

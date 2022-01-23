@@ -12,7 +12,7 @@ CREATE TABLE USUARIO (
     senha VARCHAR(130),
     email VARCHAR(50),
     bio VARCHAR(150),
-    pfp VARCHAR(50)
+    pfp text not null,
 );
 
 CREATE TABLE CURTIDA (
