@@ -32,11 +32,12 @@ if ($row) {
 $query = pg_query($bdOpen, "SELECT * FROM tema WHERE fk_usuario_id_usuario = $id_usuario");
 $row = pg_fetch_array($query);
 if ($row) {
+    $id_tema = $row['id_tema'];
+    pg_query($bdOpen, "DELETE FROM debate WHERE fk_tema_id_tema = $id_tema");
     pg_query($bdOpen, "DELETE FROM tema WHERE fk_usuario_id_usuario = $id_usuario");
 }
 
 $result = pg_query($bdOpen, "DELETE FROM usuario WHERE id_usuario = $id_usuario");
-
 
 //check erro
 if ($result) {
