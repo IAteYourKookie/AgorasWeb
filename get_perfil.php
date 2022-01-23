@@ -4,9 +4,10 @@ require "./configs/conexao.php";
 
 // array for JSON response
 $response = array();
+//if isset
 
 //session de usuario
-$login = trim($_POST['login']);
+$login = trim($_GET['login']);
 $result = pg_fetch_array($bdOpen, "SELECT * FROM usuario WHERE email='$login')");
 echo $result;
 
