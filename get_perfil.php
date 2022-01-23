@@ -18,7 +18,7 @@ if (pg_num_rows($result) > 0) {
         $usuario['userName'] = $row['nome_de_usuario'];
         $usuario['bio'] = $row['bio'];
         $usuario['img']=$row['pfp'];
-        array_push($response["usuario"], $comentario);
+        array_push($response["usuario"]);
     }
     $response["success"] = 1;
 }else {
