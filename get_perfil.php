@@ -12,8 +12,7 @@ $result = pg_query($bdOpen, "SELECT * FROM usuario WHERE email='$login')");
 if (pg_num_rows($result) > 0) {
     $response["usuario"] = array();
     
-    while ($row = pg_fetch_array($result)) {
-        echo $row;
+    while ($row = $result) {
         $usuario = array();
         $usuario['name'] = $row['nome'];
         $usuario['userName'] = $row['nome_de_usuario'];
