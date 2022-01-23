@@ -14,11 +14,10 @@ $newName = trim($_POST['editName']);//Nome
 $newUser = trim($_POST['editUser']);//Nome de usuario
 $newEmail = trim($_POST['editEmail']);//novo email
 $newBio = trim($_POST['editBio']);//bio
-$img = trim($_POST['editImg']);//foto perfil
 
-//$imageFileType = strtolower(pathinfo(basename($_FILES["img"]["name"]),PATHINFO_EXTENSION));
-//$image_base64 = base64_encode(file_get_contents($_FILES['img']['tmp_name']) );
-//$img = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+$imageFileType = strtolower(pathinfo(basename($_FILES["img"]["name"]),PATHINFO_EXTENSION));
+$image_base64 = base64_encode(file_get_contents($_FILES['img']['tmp_name']) );
+$img = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
 
 //id => (SELECT id_usuario from usuario where email='$login');

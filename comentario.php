@@ -35,13 +35,10 @@ if (isset($_GET['login']) && isset($_POST['comentario'])) {
         pg_close($bdOpen);
         echo json_encode($response);
     }
-
-    pg_close($bdOpen);
-    echo json_encode($response);
 } else {
     
     $response["success"] = 0;
-    $response["message"] = "Campo requerido nao preenchido";
+    $response["message"] = "Campo comentario nao preenchido";
 
     
     pg_close($bdOpen);
