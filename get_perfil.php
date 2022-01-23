@@ -12,14 +12,10 @@ $result = pg_fetch_array($query);
 
 if (pg_num_rows($result) > 0) {
     $response["usuario"] = array();
-    
+
     while ($row = pg_fetch_array($result)) {
         $usuario = array();
-        $usuario['name'] = $row['nome'];
-        $usuario['userName'] = $row['nome_de_usuario'];
-        $usuario['bio'] = $row['bio'];
-        $usuario['img']=$row['pfp'];
-        array_push($response["usuario"]);
+        
     }
     $response["success"] = 1;
 }else {
