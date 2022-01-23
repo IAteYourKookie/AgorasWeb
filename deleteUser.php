@@ -10,8 +10,6 @@ $login = trim($_POST['login']);
 $query = pg_query($bdOpen, "SELECT id_usuario FROM usuario WHERE email='$login'");
 $row = pg_fetch_array($query);
 $id_usuario = $row[0];
-echo $id_usuario;
-
 
 $query = pg_query($bdOpen, "SELECT * FROM resposta WHERE fk_usuario_id_usuario = '$id_usuario'");
 $row = pg_fetch_array($query);
