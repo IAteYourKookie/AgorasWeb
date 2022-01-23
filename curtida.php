@@ -17,19 +17,25 @@ provavelmente são feitos bastante pelo AndroidStudio, mas vou fazer a lógica a
 
 // verificar se tem algum registro de usuario e do tema na tabela curtida
 
+$id_usuario = 1; //generico, para teste, o real é o id do usuario cadastrado no momento
+$id_tema = 1; //generico, para teste, o real é o tema em que ele está votando
+
 
 $sql = "SELECT (fk_usuario_id_usuario, fk_tema_id_tema)
 FROM curtida 
-WHERE fk_usuario_id_usuario = '$id_usuario' 
-AND fk_tema_id_tema = '$id_tema';";
+WHERE fk_usuario_id_usuario = $id_usuario 
+AND fk_tema_id_tema = $id_tema;";
 $result = pg_query($bdOpen, $sql);
 
 if (pg_fetch_array($sql)) {
-    $del = "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'";
+    $del = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = $id_usuario AND FK_TEMA_id_tema = $id_tema");
+    
     // mudar o botão para 'não curtido'
+
 } else { 
     // pegar o id de usuario e o de debate
-    $insert = "INSERT INTO curtida(id_curtida) VALUES ()"; 
+    $result = pg_query($bdOpen, "INSERT INTO curtida(fk_usuario_id_usuario, fk_tema_id_tema) VALUES ($id_usuario, $id_tema)"); 
+
     // mudar o botão para 'curtido'
 } 
 
