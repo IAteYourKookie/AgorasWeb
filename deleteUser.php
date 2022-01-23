@@ -15,6 +15,7 @@ $id_usuario = $row['id_usuario'];
 $query = pg_query($bdOpen, "SELECT * FROM resposta WHERE fk_usuario_id_usuario = '$id_usuario'");
 $row = pg_fetch_array($query);
 if($row) {
+    echo "entrou 1";
     pg_query($bdOpen, "DELETE FROM resposta WHERE fk_usuario_id_usuario = '$id_usuario'");
 }
 
