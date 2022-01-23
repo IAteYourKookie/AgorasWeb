@@ -8,18 +8,16 @@ $response = array();
 
 //session de usuario
 $login = trim($_GET['login']);
-$result = pg_fetch_array($bdOpen, "SELECT * FROM usuario WHERE email='$login')");
-echo $result;
+$result = pg_query($bdOpen, "SELECT * FROM usuario WHERE email='$login')");
 
 if (pg_num_rows($result) > 0) {
-    $response["usuario"] = array();{
-    $usuario = array();
-    $usuario['name'] = $row['nome'];
-    $usuario['userName'] = $row['nome_de_usuario'];
-    $usuario['bio'] = $row['bio'];
-    $usuario['img']=$row['pfp'];
-    array_push($response["usuario"]);
-    }
+    $row = pg_fetch_array($result);
+
+    $response['name'] = $row['nome'];
+    $response['userName'] = $row['nome_de_usuario'];
+    $response['bio'] = $row['bio'];
+    $response['img']=$row['pfp'];
+
     $response["success"] = 1;
 }else {
     $response["success"] = 0;
