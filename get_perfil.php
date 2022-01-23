@@ -8,7 +8,7 @@ $response = array();
 
 //session de usuario
 $login = trim($_GET['login']);
-$result = pg_query($bdOpen, "SELECT * FROM usuario WHERE email='$login')");
+$result = pg_query($bdOpen, "SELECT * FROM usuario WHERE email='$login'");
 
 if (pg_num_rows($result) > 0) {
     $row = pg_fetch_array($result);
