@@ -12,6 +12,7 @@ $result = pg_fetch_array($query);
 
 if (pg_num_rows($result) > 0) {
     $response["usuario"] = array();
+    
     while ($row = pg_fetch_array($result)) {
         $usuario = array();
         $usuario['name'] = $row['nome'];
@@ -23,7 +24,7 @@ if (pg_num_rows($result) > 0) {
     $response["success"] = 1;
 }else {
     $response["success"] = 0;
-    $response["error"] = "Error BD: " . pg_last_error($bdOpen);
+    $response["message"] = "Nao ha dados";
 }
 pg_close($bdOpen);
 echo json_encode($response);
