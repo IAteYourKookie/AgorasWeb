@@ -40,7 +40,7 @@ if (pg_num_rows($result) > 0) {
         $query = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario='$idUser'");
         $row = pg_fetch_array($query);
         $row = $row['nome'];
-        $comentario["nomePerfil"]= $row;
+        $comentario["nomePerfil"] = $row;
 
         //nome de usuario e img de perfil 
 

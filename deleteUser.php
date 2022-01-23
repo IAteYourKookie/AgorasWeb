@@ -1,4 +1,3 @@
-
 <?php
 require "./configs/conexao.php";
 
@@ -8,10 +7,9 @@ $response = array();
 //session de usuario
 $login = trim($_POST['login']);
 
-$query = pg_query($bdOpen, "SELECT id_usuario FROM usuario WHERE email='$login')");
+$query = pg_query($bdOpen, "SELECT id_usuario FROM usuario WHERE email='$login'");
 $row = pg_fetch_array($query);
 $id_usuario = $row[0];
-echo $id_usuario;
 
 echo "estou na pagina";
 $query = pg_query($bdOpen, "SELECT * FROM resposta WHERE fk_usuario_id_usuario = '$id_usuario'");
@@ -43,6 +41,7 @@ if ($row) {
 }
 
 $result = pg_query($bdOpen, "DELETE FROM usuario WHERE id_usuario = '$id_usuario'");
+
 
 //check erro
 if ($result) {
