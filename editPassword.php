@@ -4,13 +4,11 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-if (isset($_POST['login']) && isset($_POST['editPassword']) && isset($_POST['passwordCheck'])) {
+if (isset($_POST['login']) && isset($_POST['editPassword']) {
 
     //session de usuario
     $login = trim($_POST['login']);
-
-    $newPassword = trim($_POST['editPassword']);
-    $passwordCheck = trim($_POST['passwordCheck']);
+    $newPassword = trim($_POST['newPass']);
 
     $result = pg_query($bdOpen, "UPDATE usuario SET senha='$newPassword' WHERE id_usuario=(SELECT id_usuario from usuario where email='$login'");
 
