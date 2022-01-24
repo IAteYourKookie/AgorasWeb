@@ -16,10 +16,6 @@ $comentario["idTema"] = $row["fk_tema_id_tema"];
 
 // Realiza uma consulta ao BD e obtem todos os produtos.
 $result = pg_query($bdOpen, "SELECT * FROM comentario WHERE fk_tema_id_tema = $idTema;");
-//$comentario["idTema"] = $row["fk_tema_id_tema"];
-//$comentario["idTema"] = $row["id_tema"];
-//SELECT * FROM comentario WHERE fk_tema_id_tema = '$idTema'; 
-//SELECT * FROM comentario WHERE id_tema = '$idTema';
 
 
 if (pg_num_rows($result) > 0) {
