@@ -61,7 +61,6 @@ if (pg_num_rows($result) > 0) {
     // recebe a chave "success" com valor 1. A chave "message indica
     //que os comentarios foram carregados.
     $response["success"] = 1;
-    $response["message"] = "Comentarios carregados com sucesso";
 
     // Fecha a conexao com o BD
     pg_close($bdOpen);

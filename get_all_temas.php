@@ -14,27 +14,28 @@ require "./configs/conexao.php";
 $response = array();
  
 // Realiza uma consulta ao BD e obtem todos os produtos.
-$result = pg_query($bdOpen, "SELECT * FROM curtida");
+$result = pg_query($bdOpen, "SELECT * FROM tema");
  
 
 if (pg_num_rows($result) > 0) {
     // Caso existam produtos no BD, eles sao armazenados na 
 	// chave "products". O valor dessa chave e formado por um 
 	// array onde cada elemento e um produto.
-    $response["id_curtida"] = array(); 
+    $response["tema"] = array(); 
  
     while ($row = pg_fetch_array($result)) {
-        $curtida = array();
-        $curtida["id_curtida"] = $row["id_curtida"];
-        /* $curtida[""] = $row[""]; */
+        $tema = array();
+        $tema["id_tema"] = $row["id_tema"];
+        $tema["titulo"] = $row["titulo"];
+        $tema["desc"] = $row["descricao"];
+        $tema["id_usuario"] = $row["fk_usuario_id_usuario"];
  
         // Adiciona o produto no array de produtos.
-        array_push($response["id_curtida"], $curtida); 
+        array_push($response["tema"], $tema); 
     }
     // Caso haja produtos no BD, o cliente 
 	// recebe a chave "success" com valor 1.
     $response["success"] = 1;
-    $response["message"] = "Ha temas";
 	
 } else {
     // Caso nao haja produtos no BD, o cliente 
