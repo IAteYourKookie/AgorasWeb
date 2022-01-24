@@ -7,11 +7,11 @@ $response = array();
 
 $comentario = NULL;
 
-if (isset($_GET['login']) && isset($_POST['comentario'])) {
+if (isset($_GET['login']) && isset($_GET['comentario'])) {
 
     //check for required fields
     $login = trim($_GET['login']); 
-    $comentario = trim($_POST['comentario']);
+    $comentario = trim($_GET['comentario']);
 
     $result = pg_query($bdOpen, "INSERT INTO comentario(data_envio, comentario, fk_usuario_id_usuario) 
     VALUES(NOW(), '$comentario',(SELECT id_usuario from usuario where email='$login'));");

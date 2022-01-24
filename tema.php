@@ -4,10 +4,10 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-if (isset($_GET['login']) && isset($_POST['titulo']) && isset($_POST['descricao'])) {
+if (isset($_POST['login']) && isset($_POST['titulo']) && isset($_POST['descricao'])) {
 
     //check for required fields
-    $login = trim($_GET['login']);
+    $login = trim($_POST['login']);
     $titulo = trim($_POST['titulo']);
     $descricao = trim($_POST['descricao']);
 

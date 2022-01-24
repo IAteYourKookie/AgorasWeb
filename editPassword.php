@@ -4,10 +4,10 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-if (isset($_GET['login']) && isset($_POST['editPassword']) && isset($_POST['passwordCheck'])) {
+if (isset($_POST['login']) && isset($_POST['editPassword']) && isset($_POST['passwordCheck'])) {
 
     //session de usuario
-    $login = trim($_GET['login']);
+    $login = trim($_POST['login']);
 
     $newPassword = trim($_POST['editPassword']);
     $passwordCheck = trim($_POST['passwordCheck']);

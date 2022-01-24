@@ -7,10 +7,10 @@ $response = array();
 $imgPfp = NULL; // imagem atual 
 $imgEditPhoto = NULL; // imagem de upload
 
-if (isset($_GET['login']) && isset($_POST['editName']) && isset($_POST['editUser']) && isset($_POST['editEmail']) && isset($_POST['editBio'])) {
+if (isset($_POST['login']) && isset($_POST['editName']) && isset($_POST['editUser']) && isset($_POST['editEmail']) && isset($_POST['editBio'])) {
 
     //session de usuario
-    $login = trim($_GET['login']); //email
+    $login = trim($_POST['login']); //email
     $newName = trim($_POST['editName']);//Nome
     $newUser = trim($_POST['editUser']);//Nome de usuario
     $newEmail = trim($_POST['editEmail']);//novo email
