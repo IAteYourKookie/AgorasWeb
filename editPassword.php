@@ -4,7 +4,7 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-if (isset($_POST['login']) && isset($_POST['editPassword']) {
+if (isset($_POST['login']) && isset($_POST['newPass'])) {
 
     //session de usuario
     $login = trim($_POST['login']);
