@@ -12,8 +12,10 @@ require "./configs/conexao.php";
 // array que guarda a resposta da requisicao
 $response = array();
 
+$comentario["idTema"] = $row["fk_tema_id_tema"];
+
 // Realiza uma consulta ao BD e obtem todos os produtos.
-$result = pg_query($bdOpen, "SELECT * FROM comentario");
+$result = pg_query($bdOpen, "SELECT * FROM comentario WHERE fk_tema_id_tema = $idTema;");
 //$comentario["idTema"] = $row["fk_tema_id_tema"];
 //$comentario["idTema"] = $row["id_tema"];
 //SELECT * FROM comentario WHERE fk_tema_id_tema = '$idTema'; 
