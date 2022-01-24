@@ -12,11 +12,11 @@ require "./configs/conexao.php";
 // array que guarda a resposta da requisicao
 $response = array();
 
-$comentario["idTema"] = $row["fk_tema_id_tema"];
+//$comentario["idTema"] = $row["fk_tema_id_debate"];
 
 // Realiza uma consulta ao BD e obtem todos os produtos.
-$result = pg_query($bdOpen, "SELECT * FROM comentario WHERE fk_tema_id_tema = $idTema;");
-
+//$result = pg_query($bdOpen, "SELECT * FROM comentario WHERE fk_tema_id_tema = $idTema;");
+$result = pg_query($bdOpen, "SELECT * FROM comentario");
 
 if (pg_num_rows($result) > 0) {
     // Caso existam comentarios no BD, eles sao armazenados na 
