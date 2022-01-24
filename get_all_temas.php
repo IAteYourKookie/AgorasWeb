@@ -31,7 +31,8 @@ if (isset($_GET['login'])) {
             $tema["desc"] = $row["descricao"];
             $tema["id_usuario"] = $row["fk_usuario_id_usuario"];
 
-            $query = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario='$tema['id_usuario']'");
+            $idUser= (int)$tema["id_usuario"];
+            $query = pg_query($bdOpen, "SELECT nome FROM usuario WHERE id_usuario='$idUser'");
             $row = pg_fetch_array($query);
             $row = $row['nome'];
             $tema["nomeUsuario"] = $row;
