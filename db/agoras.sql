@@ -1,7 +1,7 @@
 CREATE TABLE TEMA (
     id_tema Integer PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(50),
-    descricao VARCHAR(200),
+    descricao VARCHAR(700),
     FK_USUARIO_id_usuario Integer
 );
 
