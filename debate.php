@@ -4,12 +4,12 @@ require "./configs/conexao.php";
 // array for JSON response
 $response = array();
 
-if (isset($_POST['tvDescDebate']) && isset($_POST['tvDescDebate'])) {
+if (isset($_POST['tvDescDebate']) && isset($_POST['tvTitleTheme'])) {
 
 
     //check for required fields
     $tvDescDebate = trim($_POST['tvDescDebate']);
-    $tvTitleTheme = trim($_POST['tvDescDebate']);
+    $tvTitleTheme = trim($_POST['tvTitleTheme']);
 
     $dataAtual = date("Y-m-d");
     $result = pg_query($bdOpen, "SELECT * FROM debate WHERE (dt_final > '$dataAtual')");
