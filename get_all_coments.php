@@ -45,6 +45,10 @@ if (pg_num_rows($result) > 0) {
         $row = pg_fetch_array($query);
         $row = $row['pfp'];
         $comentario["img"] = $row;
+        $query = pg_query($bdOpen, "SELECT nome_de_usuario FROM usuario WHERE id_usuario='$idUser'");
+        $row = pg_fetch_array($query);
+        $row = $row['nome_de_usuario'];
+        $comentario["nomeUser"] = $row;
 
         //nome de usuario e img de perfil 
 
