@@ -10,6 +10,8 @@ if (isset($_POST['login']) && isset($_POST['newPass'])) {
     $login = trim($_POST['login']);
     $newPassword = trim($_POST['newPass']);
 
+    $newPassword = hash('md5',$newPassword);
+
     $result = pg_query($bdOpen, "UPDATE usuario SET senha='$newPassword' WHERE id_usuario=(SELECT id_usuario from usuario where email='$login')");
 
     //check erro
