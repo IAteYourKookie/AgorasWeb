@@ -17,8 +17,8 @@ if (isset($_GET['login'])) {
         $response['name'] = $row['nome'];
         $response['userName'] = $row['nome_de_usuario'];
         $response['bio'] = $row['bio'];
-        $response['img'] = $row['pfp'];
         $response['dataIngresso'] = $row['data_ingresso'];
+        $response['img'] = $row['pfp'];
 
         $response["success"] = 1;
         $response["message"] = "Perfil foi carregado com sucesso";
