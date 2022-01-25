@@ -18,6 +18,7 @@ if (isset($_GET['login'])) {
         $response['userName'] = $row['nome_de_usuario'];
         $response['bio'] = $row['bio'];
         $response['img'] = $row['pfp'];
+        $response['dataIngresso'] = $row['data_ingresso'];
 
         $response["success"] = 1;
         $response["message"] = "Perfil foi carregado com sucesso";
@@ -29,10 +30,8 @@ if (isset($_GET['login'])) {
     pg_close($bdOpen);
     echo json_encode($response);
 } else {
-
     $response["success"] = 0;
     $response["message"] = "Perfil nao foi carregado";
-
 
     pg_close($bdOpen);
     echo json_encode($response);
