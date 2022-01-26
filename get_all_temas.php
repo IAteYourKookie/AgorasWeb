@@ -14,7 +14,15 @@ require "./configs/conexao.php";
 $response = array();
  
 // Realiza uma consulta ao BD e obtem todos os produtos.
-$result = pg_query($bdOpen, "SELECT * FROM tema");
+$result = pg_query($bdOpen, "SELECT t.id_tema, t.titulo, t.descricao, 
+t.fk_usuario_id_usuario, COUNT(*) as curtidas 
+FROM curtida as c 
+LEFT JOIN debate as d
+ON c.fk_tema_id_tema = d.fk_tema_id_tema
+INNER JOIN tema as t 
+ON c.fk_tema_id_tema = t.id_tema
+WHERE d.FK_TEMA_id_tema is null
+GROUP BY t.id_tema ORDER BY COUNT(*) DESC");
  
 
 if (pg_num_rows($result) > 0) {
