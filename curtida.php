@@ -20,9 +20,12 @@ if (isset($_POST['login'])){
 
     // verificar se tem algum registro de usuario e do tema na tabela curtida
     $login = trim($_POST['login']);
+    $id_tema = trim($_POST['id_tema']);
+
     $query = pg_query($bdOpen, "SELECT id_usuario from usuario where email='$login'");
     $row = pg_fetch_array($query);
-    $id_tema = $row['id_usuario'];
+    $id_usuario = $row['id_usuario'];
+
 
 
     $sql = "SELECT (fk_usuario_id_usuario, fk_tema_id_tema)
