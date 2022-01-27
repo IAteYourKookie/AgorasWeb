@@ -28,11 +28,7 @@ if (isset($_POST['login'])){
 
 
 
-    $sql = "SELECT (fk_usuario_id_usuario, fk_tema_id_tema)
-    FROM curtida 
-    WHERE fk_usuario_id_usuario = '$id_usuario' 
-    AND fk_tema_id_tema = '$id_tema';";
-    $result = pg_query($bdOpen, $sql);
+    $sql = pg_query($bdOpen, ("SELECT (fk_usuario_id_usuario, fk_tema_id_tema)FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND fk_tema_id_tema = '$id_tema';"));
 
     if (pg_num_rows($sql)>0) {
         $result = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'");
