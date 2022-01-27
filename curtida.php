@@ -38,7 +38,7 @@ if (isset($_POST['login'])){
 
     } else { */
         // pegar o id de usuario e o de debate
-        $result = pg_query($bdOpen, "INSERT INTO curtida(fk_usuario_id_usuario, fk_tema_id_tema) VALUES ($id_usuario, $id_tema)"); 
+        $result = pg_query($bdOpen, "INSERT INTO curtida(fk_usuario_id_usuario, fk_tema_id_tema) VALUES ('$id_usuario', '$id_tema')"); 
 
         // mudar o botão para 'curtido'
     //} 
