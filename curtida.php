@@ -34,7 +34,7 @@ if (isset($_POST['login'])){
     AND fk_tema_id_tema = '$id_tema';";
     $result = pg_query($bdOpen, $sql);
 
-    if (pg_fetch_array($sql)>0) {
+    if (pg_num_rows($sql)>0) {
         $del = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'");
         
         // mudar o botão para 'não curtido'
