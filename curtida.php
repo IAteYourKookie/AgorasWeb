@@ -32,23 +32,28 @@ if (isset($_POST['login'])){
 
     if (pg_num_rows($sql)>0) {
         $result = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'");
-        $response["success"] = 2;
-        $response["message"] = "Curtida excluida";
+        if ($result) {
+            $response["success"] = 2;
+            $response["message"] = "Curtida excluida";
+    
+        }
+        
         // mudar o botão para 'não curtido'
 
     } else {
         // pegar o id de usuario e o de debate
         $result = pg_query($bdOpen, "INSERT INTO curtida(fk_usuario_id_usuario, fk_tema_id_tema) VALUES ('$id_usuario', '$id_tema')");
-        $response["success"] = 1;
-        $response["message"] = "Curtida adicionada";
-
+        if ($result) {
+            $response["success"] = 1;
+            $response["message"] = "Curtida adicionada";
+    
+        }
+        
         // mudar o botão para 'curtido'
     } 
-    pg_close($bdOpen);
-    echo json_encode($response);
 }else{
     $response["success"] = 0;
-    $response["error"] = "Error BD: " . pg_last_error($bdOpen);
+        $response["error"] = "Error BD: " . pg_last_error($bdOpen);
     pg_close($bdOpen);
     echo json_encode($response);
 }
