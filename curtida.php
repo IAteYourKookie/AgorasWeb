@@ -30,21 +30,21 @@ if (isset($_POST['login'])){
 
     $sql = "SELECT (fk_usuario_id_usuario, fk_tema_id_tema)
     FROM curtida 
-    WHERE fk_usuario_id_usuario = $id_usuario 
-    AND fk_tema_id_tema = $id_tema;";
+    WHERE fk_usuario_id_usuario = '$id_usuario' 
+    AND fk_tema_id_tema = '$id_tema';";
     $result = pg_query($bdOpen, $sql);
 
-    /*if (pg_fetch_array($sql)>0) {
-        $del = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = $id_usuario AND FK_TEMA_id_tema = $id_tema");
+    if (pg_fetch_array($sql)>0) {
+        $del = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'");
         
         // mudar o botão para 'não curtido'
 
-    } else { */
+    } else {
         // pegar o id de usuario e o de debate
         $result = pg_query($bdOpen, "INSERT INTO curtida(fk_usuario_id_usuario, fk_tema_id_tema) VALUES ('$id_usuario', '$id_tema')"); 
 
         // mudar o botão para 'curtido'
-    //} 
+    } 
 
     //check erro
     if ($result) {
