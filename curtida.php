@@ -37,7 +37,6 @@ if (isset($_POST['login'])){
             $response["message"] = "Curtida excluida";
     
         }
-        
         // mudar o botão para 'não curtido'
 
     } else {
@@ -46,11 +45,13 @@ if (isset($_POST['login'])){
         if ($result) {
             $response["success"] = 1;
             $response["message"] = "Curtida adicionada";
-    
+
         }
         
         // mudar o botão para 'curtido'
-    } 
+    }
+    pg_close($bdOpen);
+    echo json_encode($response);
 }else{
     $response["success"] = 0;
         $response["error"] = "Error BD: " . pg_last_error($bdOpen);
