@@ -35,13 +35,13 @@ if (isset($_POST['login'])){
     $result = pg_query($bdOpen, $sql);
 
     if (pg_num_rows($sql)>0) {
-        $del = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'");
+        $result = pg_query($bdOpen, "DELETE FROM curtida WHERE fk_usuario_id_usuario = '$id_usuario' AND FK_TEMA_id_tema = '$id_tema'");
         
         // mudar o botão para 'não curtido'
 
     } else {
         // pegar o id de usuario e o de debate
-        $result = pg_query($bdOpen, "INSERT INTO curtida(fk_usuario_id_usuario, fk_tema_id_tema) VALUES ('$id_usuario', '$id_tema')"); 
+        $result = pg_query($bdOpen, "INSERT INTO curtida(fk_usuario_id_usuario, fk_tema_id_tema) VALUES ('$id_usuario', '$id_tema')");
 
         // mudar o botão para 'curtido'
     } 
